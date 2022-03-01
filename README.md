@@ -1,24 +1,11 @@
-# README
+# AID Ukraine
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+This website hosts a simple platform to connect humanitarian volonteers and regular people,
+allowing the first ones to place to place requests for resources gathering.
 
-* Ruby version
 
-* System dependencies
+Technical specs:
+- Ruby 3.0.0
+- Rails 7.0.2.2
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

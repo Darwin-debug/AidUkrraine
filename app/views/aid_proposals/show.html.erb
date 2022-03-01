@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @aid_proposal %>
+
+<div>
+  <%= link_to "Edit this aid proposal", edit_aid_proposal_path(@aid_proposal) %> |
+  <%= link_to "Back to aid proposals", aid_proposals_path %>
+
+  <%= button_to "Destroy this aid proposal", @aid_proposal, method: :delete %>
+</div>

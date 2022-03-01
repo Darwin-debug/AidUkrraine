@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  AidProposal: MyString
+  full_name: MyString
+  country: MyString
+  city: MyString
+  items: MyText
+  date: 2022-02-28
+  contact: MyText
+
+two:
+  AidProposal: MyString
+  full_name: MyString
+  country: MyString
+  city: MyString
+  items: MyText
+  date: 2022-02-28
+  contact: MyText

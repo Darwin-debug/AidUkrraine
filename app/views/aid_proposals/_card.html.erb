@@ -1,0 +1,27 @@
+<div class="card" style="margin: 30px;">
+  <div class="card-header">
+    <h5 class="card-title"><%= aid_proposal.country%>, <%= aid_proposal.city%></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= aid_proposal.date %></h6>
+  </div>
+  <div class="card-body">
+    <p class="card-text">
+      <% if aid_proposal.description? %>
+        <%= simple_format(aid_proposal.description) %>
+      <% end%>
+    </p>
+    <% if aid_proposal.url? %>
+    <a href="#" class="card-link">додаткова інформація</a>
+    <% end %>
+
+    <hr>
+    Contact / Контакт: <br>
+    <p class="card-text">
+      <b>  <%= aid_proposal.full_name%></b><br>
+      <%= simple_format(aid_proposal.contact) %></li>
+    </p>
+    
+    <% if user_signed_in? && current_user.email == aid_proposal.user_email %>
+    <a href="#" class="card-link">Update / Оновити</a>
+    <% end %>
+  </div>
+</div>

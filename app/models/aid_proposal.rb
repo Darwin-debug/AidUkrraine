@@ -5,4 +5,12 @@ class AidProposal < ApplicationRecord
     validates :contact, :presence => true
     validates :date, :presence => true
     validates :description, :presence => true
+
+    def self.search(query)
+        if query
+            where(["country LIKE ? or city LIKE ?", "%#{query}%", "%#{query}%"])
+        else
+            all
+        end
+    end
 end

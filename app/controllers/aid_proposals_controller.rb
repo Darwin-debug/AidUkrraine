@@ -66,11 +66,7 @@ class AidProposalsController < ApplicationController
 
   private
     def aid_proposals
-      if (params[:country].blank? && params[:city].blank?)
-        return AidProposal.all
-      end
-      
-      AidProposal.where(aid_proposal_search_params)
+      AidProposal.search params[:search_query]
     end
 
     # Use callbacks to share common setup or constraints between actions.
@@ -84,7 +80,7 @@ class AidProposalsController < ApplicationController
     end
 
     def aid_proposal_search_params
-      params.permit(:country, :city).reject { |_, v| v.blank?}
+      params.permit(:search_query).reject { |_, v| v.blank?}
     end
 
     def validate_owner

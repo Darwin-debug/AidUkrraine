@@ -8,6 +8,19 @@
   На даній сторінці показано список людей, які зараз збирають ресурси для відправки на Україну. Якщо у вас є можливість, будь ласка, зв'яжіться з людьми поряд з вами й допоможіть Україні!
 </p>
 <br>
+
+<%= form_tag(aid_proposals_path, method: :get, class: 'row g-3') do %>
+  <div class="col-auto">
+    <%= text_field_tag(:country, params[:country], class: 'form-control', placeholder: 'Країна') %>
+  </div>
+  <div class="col-auto">
+    <%= text_field_tag(:city, params[:city], class: 'form-control', placeholder: 'Місто') %>
+  </div>
+  <div class="col-auto">
+    <%= submit_tag("Знайти", class: 'btn btn-primary') %>
+  </div>
+<% end %>
+
 <br>
 
 <% @aid_proposals.each do |aid_proposal| %>

@@ -6,7 +6,7 @@ class AidProposalsController < ApplicationController
   
   # GET /aid_proposals or /aid_proposals.json
   def index
-    @aid_proposals = AidProposal.all
+    @aid_proposals = aid_proposals
   end
 
   def index_list
@@ -65,6 +65,14 @@ class AidProposalsController < ApplicationController
   end
 
   private
+    def aid_proposals
+      if (params[:country].blank? && params[:city].blank?)
+        return AidProposal.all
+      end
+      
+      AidProposal.where(aid_proposal_search_params)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_aid_proposal
       @aid_proposal = AidProposal.find(params[:id])
@@ -73,6 +81,10 @@ class AidProposalsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def aid_proposal_params
       params.require(:aid_proposal).permit(:full_name, :country, :city, :description, :date, :contact, :url)
+    end
+
+    def aid_proposal_search_params
+      params.permit(:country, :city).reject { |_, v| v.blank?}
     end
 
     def validate_owner

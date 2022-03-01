@@ -1,47 +1,49 @@
-<%= bootstrap_form_with(model: aid_proposal) do |form| %>
-  <% if aid_proposal.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(aid_proposal.errors.count, "error") %> prohibited this aid_proposal from being saved:</h2>
+<%= turbo_frame_tag "aid_proposal" do %>
+  <%= bootstrap_form_with(model: aid_proposal) do |form| %>
+    <% if aid_proposal.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(aid_proposal.errors.count, "error") %> prohibited this aid_proposal from being saved:</h2>
 
-      <ul>
-        <% aid_proposal.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% aid_proposal.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="container container-sm">
+      <div>
+        <%= form.text_field :full_name %>
+      </div>
+
+      <div>
+        <%= form.text_field :country %>
+      </div>
+
+      <div>
+        <%= form.text_field :city %>
+      </div>
+
+      <div>
+        <%= form.text_area :description %>
+      </div>
+
+      <div>
+        <%= form.text_field :url %>
+      </div>
+
+      <div>
+        <%= form.date_field :date %>
+      </div>
+
+      <div>
+        <%= form.text_area :contact %>
+      </div>
+
+      <div>
+        <%= form.submit "Зареєструвати поїздку" %>
+      </div>
     </div>
   <% end %>
-
-  <div class="container container-sm">
-    <div>
-      <%= form.text_field :full_name %>
-    </div>
-
-    <div>
-      <%= form.text_field :country %>
-    </div>
-
-    <div>
-      <%= form.text_field :city %>
-    </div>
-
-    <div>
-      <%= form.text_area :description %>
-    </div>
-
-    <div>
-      <%= form.text_field :url %>
-    </div>
-
-    <div>
-      <%= form.date_field :date %>
-    </div>
-
-    <div>
-      <%= form.text_area :contact %>
-    </div>
-
-    <div>
-      <%= form.submit "Зареєструвати поїздку" %>
-    </div>
-  </div>
 <% end %>

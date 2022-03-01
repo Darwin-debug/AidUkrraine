@@ -10,7 +10,7 @@
       <% end%>
     </p>
     <% if aid_proposal.url? %>
-    <a href="#" class="card-link">додаткова інформація</a>
+      <%= link_to "Додаткова інформація", aid_proposal.url, class: "card-link" %> 
     <% end %>
 
     <hr>
@@ -21,7 +21,7 @@
     </p>
     
     <% if user_signed_in? && current_user.email == aid_proposal.user_email %>
-    <a href="#" class="card-link">Update / Оновити</a>
+      <%= link_to "Update / Оновити", edit_aid_proposal_path(aid_proposal), class: "card-link" %> 
     <% end %>
   </div>
 </div>

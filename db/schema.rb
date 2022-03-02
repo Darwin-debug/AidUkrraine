@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_28_153221) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_02_173838) do
   create_table "aid_proposals", force: :cascade do |t|
     t.string "full_name"
     t.string "country"
@@ -22,6 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_28_153221) do
     t.datetime "updated_at", null: false
     t.string "user_email"
     t.string "url"
+    t.integer "message_id"
   end
 
   create_table "users", force: :cascade do |t|

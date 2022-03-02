@@ -3,12 +3,12 @@
         <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
             <a href="/" class="text-dark text-decoration-none"><h3 class="float-md-start mb-0 fs-4">AID Ukraine</h3></a>
             <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-                <%= link_to "Надати допомогу", aid_proposals_path, class: "me-3 py-2 text-dark text-decoration-none"%>
-                <%= link_to "Стати волонтером", new_aid_proposal_path, class: "me-3 py-2 text-dark text-decoration-none"%>
+                <%= link_to t('.provide-aid'), aid_proposals_path, class: "me-3 py-2 text-dark text-decoration-none font"%>
+                <%= link_to t('.become-a-volonteer'), new_aid_proposal_path, class: "me-3 py-2 text-dark text-decoration-none"%>
                 <% if user_signed_in? %>
                 <%= link_to "Вийти з облікового запису", destroy_user_session_path, {:method => :delete, :class => "me-3 py-2 text-dark text-decoration-none"} %>
-
                 <% end %>
+                <%= link_to t('.switch-language-icon'), {locale: (locale == :en ? :uk : :en)}, class: "me-3 py-2 text-dark text-decoration-none", alt: t('.switch-language-alt') %>
             </nav>
         </div>
     </header>

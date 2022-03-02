@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_02_173838) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_02_195304) do
   create_table "aid_proposals", force: :cascade do |t|
     t.string "full_name"
     t.string "country"
@@ -23,6 +23,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_02_173838) do
     t.string "user_email"
     t.string "url"
     t.integer "message_id"
+    t.boolean "approved"
+  end
+
+  create_table "letsencrypt_certificates", force: :cascade do |t|
+    t.string "domain"
+    t.text "certificate", limit: 65535
+    t.text "intermediaries", limit: 65535
+    t.text "key", limit: 65535
+    t.datetime "expires_at"
+    t.datetime "renew_after"
+    t.string "verification_path"
+    t.string "verification_string"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["domain"], name: "index_letsencrypt_certificates_on_domain"
+    t.index ["renew_after"], name: "index_letsencrypt_certificates_on_renew_after"
   end
 
   create_table "users", force: :cascade do |t|

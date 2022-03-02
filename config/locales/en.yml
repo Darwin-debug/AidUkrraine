@@ -30,4 +30,14 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  shared:
+    header:
+      provide-aid: "Provide aid"
+      become-a-volnteer: "Become a volonteer"
+      switch-language-icon: "UA"
+      switch-language-alt: "Switch Language to Ukrainian"
+  static_pages:
+    home:
+      provide-aid: "Provide aid"
+      become-a-volnteer: "Become a volonteer"
+      heading: Let's provide humanitarian aid to Ukraine!

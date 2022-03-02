@@ -1,18 +1,25 @@
 <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
-    <div class="jumbotron mt-auto">
+    <div class="px-4 py-5 my-5 text-center">
         <div class="container">
-        <h1 class="display-4"> Надаймо гуманітарну допомогу Україні! </h1>
-<h2>   Росія оголосила Україні війну і підло обстрілює мирні міста.</h2>
-    <p>
-       Допоможи гуманітарною допомогою тим, хто зараз їде в Україну. 
-    </p>
+            <h1 class="display-4"> <%= t('.heading') %>  </h1>
+            <br />
+            <br />
+            <h2>   Russia has declared war on Ukraine and is vilely shelling peaceful cities.</h2>
+            <h2>   Росія оголосила Україні війну і підло обстрілює мирні міста.</h2>
+            <br />
+            <p>
+                Help with humanitarian aid to those who are currently going to Ukraine.
+            <br />
+                Допоможи гуманітарною допомогою тим, хто зараз їде в Україну. 
+            </p>
+            <br />
         </div>
     </div>
 
     <div class="px-3">
         <div class="flex-md-row">
-            <%= link_to "Надати допомогу", aid_proposals_path, :class => "btn btn-primary" %>
-            <%= link_to "Стати волонтером", new_aid_proposal_path, :class => "btn btn-info"%>
+            <%= link_to t('.provide-aid'), aid_proposals_path, :class => "btn btn-primary" %>
+            <%= link_to t('.become-a-volonteer'), new_aid_proposal_path, :class => "btn btn-info"%>
         </div>
     </div>
 </div>

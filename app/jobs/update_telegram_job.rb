@@ -1,7 +1,6 @@
 class UpdateTelegramJob < ApplicationJob
   queue_as :default
 
-
   CHAT_ID = "@testaidchannel"
 
   def construct_request_url(text, message_id)

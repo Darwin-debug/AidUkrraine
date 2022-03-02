@@ -1,18 +1,23 @@
 <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
     <div class="jumbotron mt-auto">
-        <div class="container">
+        <div class="container">        
+        <h1 class="display-3"> Let's provide humanitarian aid to Ukraine! </h1>
         <h1 class="display-4"> Надаймо гуманітарну допомогу Україні! </h1>
+<h2>   Russia has declared war on Ukraine and is vilely shelling peaceful cities.</h2>
 <h2>   Росія оголосила Україні війну і підло обстрілює мирні міста.</h2>
     <p>
-       Допоможи гуманітарною допомогою тим, хто зараз їде в Україну. 
+       Help with humanitarian aid to those who are currently going to Ukraine.
+    </p>
+    <p>
+       Допоможи гуманітарною допомогою тим, хто зараз їде в Україну.
     </p>
         </div>
     </div>
 
     <div class="px-3">
         <div class="flex-md-row">
-            <%= link_to "Надати допомогу", aid_proposals_path, :class => "btn btn-primary" %>
-            <%= link_to "Стати волонтером", new_aid_proposal_path, :class => "btn btn-info"%>
+            <%= link_to "Надати допомогу/Provide AID", aid_proposals_path, :class => "btn btn-primary" %>
+            <%= link_to "Стати волонтером/Become a volunteer", new_aid_proposal_path, :class => "btn btn-info"%>
         </div>
     </div>
 </div>

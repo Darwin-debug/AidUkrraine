@@ -41,7 +41,7 @@
     </div>
 
     <div>
-      <%= form.submit "Register / Зареєструвати" %>
+      <%= form.submit (aid_proposal.id? ? "Update / Оновити": "Register / Зареєструвати" )%>
     </div>
   </div>
 <% end %>

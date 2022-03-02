@@ -1,37 +1,39 @@
 <div id="<%= dom_id aid_proposal %>">
-  <p>
-    <strong>Full name:</strong>
-    <%= aid_proposal.full_name %>
-  </p>
+  <table class="table">
+  <thead>
+  <th> Application info / Інформація про заявку </th>
+  <th></th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Name / Ім'я:</strong></td>
+      <td><%= aid_proposal.full_name %></td>
+    </tr>
 
-  <p>
-    <strong>Country:</strong>
-    <%= aid_proposal.country %>
-  </p>
+    <tr>
+      <td><strong>Country / Країна:</strong></td>
+      <td><%= aid_proposal.country %></td>
+    </tr>
 
-  <p>
-    <strong>City:</strong>
-    <%= aid_proposal.city %>
-  </p>
+    <tr>
+      <td><strong>City / Місто:</strong></td>
+      <td><%= aid_proposal.city %></td>
+    </tr>
 
-  <p>
-    <strong>Description:</strong>
-    <%= aid_proposal.description %>
-  </p>
+    <tr>
+      <td><strong>Description / Опис:</strong></td>
+      <td><%= simple_format(aid_proposal.description)%></td>
+    </tr>
 
-  <p>
-    <strong>Date:</strong>
-    <%= aid_proposal.date %>
-  </p>
+    <tr>
+      <td><strong>Date/ Дата:</strong></td>
+      <td><%= aid_proposal.date%></td>
+    </tr>
 
-  <p>
-    <strong>Contact:</strong>
-    <%= aid_proposal.contact %>
-  </p>
-
-  <p>
-    <strong>Owner email:</strong>
-    <%= aid_proposal.user_email %>
-  </p>
-
+    <tr>
+      <td><strong>Contact / Контакт:</strong></td>
+      <td><%= simple_format(aid_proposal.contact)%></td>
+    </tr>
+  </tbody>
+  </table>
 </div>

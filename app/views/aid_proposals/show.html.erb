@@ -2,9 +2,11 @@
 
 <%= render @aid_proposal %>
 
-<div>
-  <%= link_to "Edit this aid proposal", edit_aid_proposal_path(@aid_proposal) %> |
-  <%= link_to "Back to aid proposals", aid_proposals_path %>
-
-  <%= button_to "Destroy this aid proposal", @aid_proposal, method: :delete %>
+<div class="row">
+  <div class="col-6">
+    <%= link_to "Edit / Редагувати", edit_aid_proposal_path(@aid_proposal), class: "btn btn-info" %>
+  </div>
+  <div class="col-6">
+    <%= button_to "Remove proposal / Видалити заявку", @aid_proposal, method: :delete, class: "btn btn-danger" %>
+  </div>
 </div>

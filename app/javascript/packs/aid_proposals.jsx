@@ -57,7 +57,7 @@ class ProposalsList extends React.Component {
 class SearchField extends React.Component {
     render() {
         return (
-            <input id={this.props.field} className="form-control" placeholder="Локація" onChange={this.input.bind(this)} type="text" />
+            <input id={this.props.field} className="form-control" placeholder="Search / Пошук" onChange={this.input.bind(this)} type="text" />
         );
     }
 

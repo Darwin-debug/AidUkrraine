@@ -14,6 +14,7 @@ class UpdateTelegramJob < ApplicationJob
   def convert_to_message(aid_proposal, proposal_url)
     %Q(
       #{aid_proposal.full_name} збирає гуманітарну допомогу Україні в #{aid_proposal.city}, #{aid_proposal.country}!
+Дата: #{aid_proposal.date}
 
 Опис:
 #{aid_proposal.description}

@@ -20,7 +20,7 @@ class Proposal extends React.Component {
                     </span>
                 </p>
                 {this.proposal.url &&
-                    <a href={"//" + this.proposal.url} className="cardLink">Додаткова інформація</a>
+                    <a href={"//" + this.proposal.url} className="cardLink">Additional info / Додаткова інформація</a>
                 }
                 <hr />
                 Contact / Контакт: <br />

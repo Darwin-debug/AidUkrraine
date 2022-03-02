@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
-    around_action :switch_locale
+    before_action :set_locale
 
-    def switch_locale(&action)
-        locale = params[:locale] || I18n.default_locale
-        I18n.with_locale(locale, &action)
+    def set_locale
+        I18n.locale = params[:locale] || session[:locale] || I18n.default_locale
+        session[:locale] = I18n.locale
     end
 
     def after_sign_in_path_for(resource)

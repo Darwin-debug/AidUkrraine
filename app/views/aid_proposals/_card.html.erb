@@ -17,7 +17,7 @@
     Contact / Контакт: <br>
     <p class="card-text">
       <b>  <%= aid_proposal.full_name%></b><br>
-      <%= simple_format(aid_proposal.contact) %></li>
+      <%= simple_format(aid_proposal.contact) %>
     </p>
     
     <% if user_signed_in? && current_user.email == aid_proposal.user_email %>

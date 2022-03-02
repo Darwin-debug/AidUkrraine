@@ -9,20 +9,16 @@
 </p>
 <br>
 
-<%= form_tag(aid_proposals_path, method: :get, class: 'row g-3') do %>
+<div class="row">
   <div class="col-auto">
-    <%= text_field_tag(:search_query, params[:search_query], class: 'form-control', placeholder: 'Локація') %>
+    <div class="search-field-container" data-field="search_query" data-action="aid_proposals.json">
+    </div>
   </div>
-  <div class="col-auto">
-    <%= submit_tag("Знайти", class: 'btn btn-primary') %>
-  </div>
-<% end %>
-
+</div>
 <br>
 
-<% @aid_proposals.each do |aid_proposal| %>
-  <%= render :partial => "aid_proposals/card", :locals =>{:aid_proposal => aid_proposal} %>
-<% end %>
+<div class="proposals-container" data-proposals="<%=@aid_proposals.to_json%>" data-user-email="<%=user_signed_in? ? current_user.email : '' %>">
+</div>
 
 <%= link_to "Стати волонтером", new_aid_proposal_path, class: "btn btn-info" %>
 

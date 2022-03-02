@@ -32,6 +32,7 @@ class AidProposalsController < ApplicationController
 
     respond_to do |format|
       if @aid_proposal.save
+        send_to_telegram
         format.html { redirect_to aid_proposal_url(@aid_proposal), notice: "Aid proposal was successfully created." }
         format.json { render :show, status: :created, location: @aid_proposal }
       else
@@ -45,6 +46,7 @@ class AidProposalsController < ApplicationController
   def update
     respond_to do |format|
       if @aid_proposal.update(aid_proposal_params)
+        send_to_telegram
         format.html { redirect_to aid_proposal_url(@aid_proposal), notice: "Aid proposal was successfully updated." }
         format.json { render :show, status: :ok, location: @aid_proposal }
       else
@@ -87,5 +89,9 @@ class AidProposalsController < ApplicationController
       if @aid_proposal.user_email != current_user.email
         redirect_to aid_proposals_url
       end
+    end
+
+    def send_to_telegram
+      UpdateTelegramJob.perform_later(@aid_proposal, aid_proposal_url(@aid_proposal))
     end
 end

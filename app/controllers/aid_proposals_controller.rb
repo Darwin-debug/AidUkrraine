@@ -1,8 +1,8 @@
 class AidProposalsController < ApplicationController
-  before_action :set_aid_proposal, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, only: [:edit, :create, :update, :new]
+  before_action :set_aid_proposal, only: %i[ show edit update destroy approve decline ]
+  before_action :authenticate_user!, only: [:edit, :create, :update, :new, :index_to_validate, :approve, :decline]
   before_action :validate_owner, only: [:edit, :update, :destroy]
-
+  before_action :validate_moderator, only: [:index_to_validate, :approve, :decline]
   
   # GET /aid_proposals or /aid_proposals.json
   def index
@@ -11,6 +11,30 @@ class AidProposalsController < ApplicationController
 
   def index_list
     @aid_proposals = AidProposal.all
+  end
+
+  # Get /aid_proposals_validate
+  def index_to_validate
+    @aid_proposals = AidProposal.where(approved: nil)
+  end
+
+  # GET /aid_appovals_approve/1
+  def approve
+    @aid_proposal.update(approved: true)
+    send_to_telegram
+    respond_to do |format|
+        format.html { redirect_to aid_proposal_url(@aid_proposal), notice: "Aid proposal approved" }
+        format.json { render :show, status: :created, location: @aid_proposal }
+    end
+  end
+
+  # GET /aid_approvals_deny/1
+  def decline
+    @aid_proposal.update(approved: false)
+    respond_to do |format|
+        format.html { redirect_to aid_proposal_url(@aid_proposal), notice: "Aid proposal declined" }
+        format.json { render :show, status: :created, location: @aid_proposal }
+    end
   end
 
   # GET /aid_proposals/1 or /aid_proposals/1.json
@@ -91,7 +115,16 @@ class AidProposalsController < ApplicationController
       end
     end
 
+    def validate_moderator
+      if current_user.moderator != true
+        respond_to do |format|
+          format.html { redirect_to aid_proposals_url, notice: "Sorry, you don't have rights to access this page." }
+          format.json { head :no_content}
+        end
+      end
+    end
+
     def send_to_telegram
-      UpdateTelegramJob.perform_later(@aid_proposal, aid_proposal_url(@aid_proposal))
+      UpdateTelegramJob.perform_later(@aid_proposal, aid_proposal_url(@aid_proposal), url_for(action: 'approve', id: @aid_proposal.id), url_for(action: 'decline', id: @aid_proposal.id))
     end
 end

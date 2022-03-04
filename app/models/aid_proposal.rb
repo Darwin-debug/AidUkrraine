@@ -10,9 +10,9 @@ class AidProposal < ApplicationRecord
 
     def self.search(query)
         if query
-            where(["country LIKE ? or city LIKE ?", "%#{query}%", "%#{query}%"])
+            where(["(country LIKE ? or city LIKE ?) and approved == true", "%#{query}%", "%#{query}%"])
         else
-            all
+            all.where(approved: true)
         end
     end
 end

@@ -1,0 +1,46 @@
+
+<p style="color: green"><%= notice %></p>
+
+<h1>Unvalidated aid proposals</h1>
+
+<div id="aid_proposals">
+<table class="table">
+  <thead>
+      <th scope="col">Country</th>
+      <th scope="col">City</th>
+      <th scope="col">Items</th>
+      <th scope="col">Name</th>
+      <th scope="col">Contact information</th>
+
+  </thead>
+  <tbody>
+    <% @aid_proposals.each do |aid_proposal| %>
+      <tr>
+        <td>   <%= aid_proposal.country%> </td>
+        <td>   <%= aid_proposal.city%> </td>
+        <td>   <%= (aid_proposal.url? ?
+           (link_to "Link", aid_proposal.url)
+          : aid_proposal.description) %> </td>
+        <td>   <%= aid_proposal.full_name%> </td>
+        <td>   <%= aid_proposal.contact%> </td>
+        <td>
+          <%= link_to "Approve", aid_proposal %>
+          <%= link_to "Deny", aid_proposal %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+
+<%= link_to "Стати волонтером", new_aid_proposal_path, class: "btn btn-info" %>
+
+

@@ -86,7 +86,7 @@ const EditProposal = ({ action, method, id }) => {
                         onZoomEnd={(e) => { setZoom(e.target.getZoom()) }}
                         center={position}
                         zoom={zoom}
-                        style={{ width: '80%', height: '300px' }}
+                        style={{ width: '100%', height: '300px' }}
                         zoomControl={false}
                     >
                         <ZoomControl position="bottomright" />

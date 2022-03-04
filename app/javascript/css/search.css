@@ -1,0 +1,6 @@
+.search-input {
+    outline: 0;
+    border-width: 0 0 1px;
+    border-color: black;
+    width: 100%;
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Map, Marker, TileLayer, ZoomControl } from 'react-leaflet';
+import { Map, Marker, TileLayer, ZoomControl, Popup } from 'react-leaflet';
 
 import markerIcon from '../markerIcon';
 
@@ -74,7 +74,16 @@ class ProposalsList extends React.Component {
                                         key={proposal.id}
                                         position={proposal}
                                         icon={markerIcon}
-                                    />
+                                    >
+                                        <Popup>
+                                            <div className="card">
+                                                <div className="card-body">
+                                                    <h5 className="card-title"> {proposal.country}, {proposal.city} </h5>
+                                                    <h6 className="card-subtitle mb-2 text-muted"> {proposal.date} - <b> {proposal.full_name}</b></h6>
+                                                </div>
+                                            </div>
+                                        </Popup>
+                                    </Marker>
                                 ))
                         }
                         

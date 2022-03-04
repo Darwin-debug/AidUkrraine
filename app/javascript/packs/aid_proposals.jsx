@@ -42,7 +42,6 @@ class ProposalsList extends React.Component {
     render() {
         return (
             <div>
-                {this.state.proposals.map(proposal => <Proposal proposal={proposal} key={proposal.id} showEditButton={this.props.userEmail == proposal.user_email} />)}
                 <div className="card mb-3">
                     <Map
                         center={[51.42169068153824, 18.821976536948544]}
@@ -78,6 +77,7 @@ class ProposalsList extends React.Component {
                         
                     </Map>
                 </div>
+                {this.state.proposals.map(proposal => <Proposal proposal={proposal} key={proposal.id} showEditButton={this.props.userEmail == proposal.user_email} />)}
             </div>
         );
     }
@@ -86,10 +86,7 @@ class ProposalsList extends React.Component {
 class SearchField extends React.Component {
     render() {
         return (
-            <>
-                <input id={this.props.field} className=" search-input" placeholder="Search / Пошук" onChange={this.input.bind(this)} type="text" />
-                <i class="absolute fa fa-search text-gray-400 top-5 left-4"></i>
-            </>
+            <input id={this.props.field} className=" search-input" placeholder="Search / Пошук" onChange={this.input.bind(this)} type="text" />
         );
     }
 

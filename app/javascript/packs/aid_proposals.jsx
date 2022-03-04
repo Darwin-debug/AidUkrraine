@@ -1,5 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Map, Marker, TileLayer } from 'react-leaflet';
+
+import markerIcon from '../markerIcon';
+
+import 'leaflet/dist/leaflet.css'
 
 class Proposal extends React.Component {
     constructor(props) {
@@ -49,6 +54,26 @@ class ProposalsList extends React.Component {
         return (
             <div>
                 {this.state.proposals.map(proposal => <Proposal proposal={proposal} key={proposal.id} showEditButton={this.props.userEmail == proposal.user_email} />)}
+                <div className="card" style={{ margin: 30 + "px" }}>
+                    <Map center={[51.42169068153824, 18.821976536948544]} zoom={4} scrollWheelZoom={false} style={{ width: '100%', height: '300px' }}>
+                        <TileLayer
+                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        />
+                        {
+                            this.state.proposals
+                                .filter(proposal => proposal.lat)
+                                .map(proposal => (
+                                    <Marker
+                                        key={proposal.id}
+                                        position={proposal}
+                                        icon={markerIcon}
+                                    />
+                                ))
+                        }
+                        
+                    </Map>
+                </div>
             </div>
         );
     }
@@ -88,4 +113,6 @@ export function InitAidProposalsSearch() {
         searchEl
     );
 }
+
+InitAidProposalsSearch();
 

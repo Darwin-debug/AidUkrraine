@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2022_03_04_002807) do
+=======
+ActiveRecord::Schema[7.0].define(version: 2022_03_03_191328) do
+>>>>>>> add map
   create_table "aid_proposals", force: :cascade do |t|
     t.string "full_name"
     t.string "country"
@@ -25,6 +29,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_04_002807) do
     t.integer "message_id"
     t.boolean "approved"
     t.integer "message_id_approval"
+    t.float "lat"
+    t.float "lng"
   end
 
   create_table "letsencrypt_certificates", force: :cascade do |t|

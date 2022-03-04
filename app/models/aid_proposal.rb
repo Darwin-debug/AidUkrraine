@@ -5,6 +5,8 @@ class AidProposal < ApplicationRecord
     validates :contact, :presence => true
     validates :date, :presence => true
     validates :description, :presence => true
+    validates :lat, :presence => true
+    validates :lng, :presence => true
 
     def self.search(query)
         if query

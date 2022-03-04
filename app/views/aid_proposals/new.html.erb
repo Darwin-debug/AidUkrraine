@@ -10,10 +10,15 @@
   Якщо ти плануєш надати гуманітарну допомогу Україні і хотів би, щоб інші люди тобі допомогли, ти можеш заповнити форму нижче і твої дані з'являться на головній сторінці в загальному доступі. 
 </p>
 </div>
-<%= render "form", aid_proposal: @aid_proposal %>
+<div id="editContainer"
+  data-action="<%= aid_proposals_path %>"
+  data-method="post"
+/>
 
 <br>
 
 <div>
   <%= link_to "Back / Повернутися до списку волнтерів", aid_proposals_path %>
 </div>
+
+<%= javascript_pack_tag 'aid_proposal_edit' %>

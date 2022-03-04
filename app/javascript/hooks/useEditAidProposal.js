@@ -45,7 +45,7 @@ export default ({id, action, method }) => {
                 return res.json();
             })
             .then(body => {
-                if (statusCode !== 200) {
+                if (![200, 201].includes(statusCode)) {
                     setErrors(body);
                     return;
                 }

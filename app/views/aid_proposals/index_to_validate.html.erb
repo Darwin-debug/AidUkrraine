@@ -24,8 +24,8 @@
         <td>   <%= aid_proposal.full_name%> </td>
         <td>   <%= aid_proposal.contact%> </td>
         <td>
-          <%= link_to "Approve", aid_proposal %>
-          <%= link_to "Deny", aid_proposal %>
+          <%= link_to "Approve", {:action => :approve, :id => aid_proposal.id} %>
+          <%= link_to "Deny", {:action => :decline, :id => aid_proposal.id} %>
         </td>
       </tr>
     <% end %>

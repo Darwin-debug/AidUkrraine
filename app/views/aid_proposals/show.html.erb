@@ -6,16 +6,16 @@
   <div class="row">
     <% if user_signed_in? && current_user.email == @aid_proposal.user_email %>
       <div class="col-4">
-        <%= link_to "Edit / Редагувати", edit_aid_proposal_path(@aid_proposal), class: "btn btn-info" %>
+        <%= link_to "Edit / Редагувати", edit_aid_proposal_path(@aid_proposal), class: "btn btn-outline-dark" %>
       </div>
       <div class="col-4">
       </div>
       <div class="col-4">
-        <%= button_to "Remove proposal / Видалити заявку", @aid_proposal, method: :delete, class: "btn btn-danger" %>
+        <%= button_to "Remove proposal / Видалити заявку", @aid_proposal, method: :delete, class: "btn btn-dark" %>
       </div>
     <% end%>
   </div>
 
-  <div class="col-4">
-      <%= link_to "All proposals / Всі заявки", aid_proposals_path, class: "btn btn-link" %>
+  <div class="col-4 mt-2 mb-4">
+      <%= link_to "All proposals / Всі заявки", aid_proposals_path, class: "text-dark" %>
   </div>

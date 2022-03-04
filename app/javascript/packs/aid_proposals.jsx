@@ -5,6 +5,7 @@ import { Map, Marker, TileLayer, ZoomControl, Popup } from 'react-leaflet';
 import markerIcon from '../markerIcon';
 
 import 'leaflet/dist/leaflet.css'
+import '../css/search.css'
 
 class Proposal extends React.Component {
     constructor(props) {
@@ -13,32 +14,20 @@ class Proposal extends React.Component {
         this.showEditButton = props.showEditButton;
     }
     render() {
-        return <div className="card" style={{ margin: 30 + "px" }}>
-            <div className="card-header">
-                <h5 className="card-title"> {this.proposal.country}, {this.proposal.city} </h5>
-                <h6 className="card-subtitle mb-2 text-muted"> {this.proposal.date} </h6>
-            </div>
+        return <div className="card mb-3">
             <div className="card-body">
-                <p className="card-text">
-                    <span className="display-linebreak">
-                        {this.proposal.description}
-                    </span>
-                </p>
-                {this.proposal.url &&
-                    <a href={"//" + this.proposal.url} className="cardLink">Additional info / Додаткова інформація</a>
-                }
-                <hr />
-                Contact / Контакт: <br />
-                <p className="card-text">
-                    <b> {this.proposal.full_name}</b>
-                    <br />
-                    <span className="display-linebreak">
-                        {this.proposal.contact}
-                    </span>
-                </p>
-                {this.showEditButton &&
-                    <a href={"aid_proposals/" + this.proposal.id + "/edit"} className="cardLink"> Update / Оновити</a>
-                }
+                <div className="row">
+                    <div className="col">
+                        <h5 className="card-title"> {this.proposal.country}, {this.proposal.city} </h5>
+                        <div className="mb-2"> {this.proposal.full_name} </div>
+                    </div>
+                    <div className="col text-center position-relative">
+                        <span className="position-absolute top-50 start-50 translate-middle">{this.proposal.date}</span>
+                    </div>
+                    <div className="col position-relative">
+                        <a className="position-absolute top-50 start-50 translate-middle text-dark" href={`aid_proposals/${this.proposal.id}`} >View details / Переглянути</a>
+                    </div>
+                </div>
             </div>
         </div>
     }
@@ -54,7 +43,7 @@ class ProposalsList extends React.Component {
         return (
             <div>
                 {this.state.proposals.map(proposal => <Proposal proposal={proposal} key={proposal.id} showEditButton={this.props.userEmail == proposal.user_email} />)}
-                <div className="card" style={{ margin: 30 + "px" }}>
+                <div className="card mb-3">
                     <Map
                         center={[51.42169068153824, 18.821976536948544]}
                         zoom={4}
@@ -97,7 +86,10 @@ class ProposalsList extends React.Component {
 class SearchField extends React.Component {
     render() {
         return (
-            <input id={this.props.field} className="form-control" placeholder="Search / Пошук" onChange={this.input.bind(this)} type="text" />
+            <>
+                <input id={this.props.field} className=" search-input" placeholder="Search / Пошук" onChange={this.input.bind(this)} type="text" />
+                <i class="absolute fa fa-search text-gray-400 top-5 left-4"></i>
+            </>
         );
     }
 

@@ -1,6 +1,6 @@
 class AidProposalsController < ApplicationController
   before_action :set_aid_proposal, only: %i[ show edit update destroy approve decline ]
-  before_action :authenticate_user!, only: [:edit, :create, :update, :new, :index_to_validate]
+  before_action :authenticate_user!, only: [:edit, :create, :update, :new, :index_to_validate, :approve, :decline]
   before_action :validate_owner, only: [:edit, :update, :destroy]
   before_action :validate_moderator, only: [:index_to_validate, :approve, :decline]
   
@@ -117,7 +117,10 @@ class AidProposalsController < ApplicationController
 
     def validate_moderator
       if current_user.moderator != true
-        redirect_to aid_proposals_url
+        respond_to do |format|
+          format.html { redirect_to aid_proposals_url, notice: "Sorry, you don't have rights to access this page." }
+          format.json { head :no_content}
+        end
       end
     end
 

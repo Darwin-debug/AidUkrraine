@@ -9,7 +9,9 @@
                 <% if user_signed_in? %>
                 <%= link_to t('.my-proposals'), {controller: 'aid_proposals', action: 'my_proposals'}, {:class => "me-3 py-2 text-dark text-decoration-none"} %>
                 <%= link_to t('.sign-out'), destroy_user_session_path, {:method => :delete, :class => "me-3 py-2 text-dark text-decoration-none"} %>
-                <% end %>
+                <% else %>
+                <%= link_to t('.sign-in'), new_user_session_path, {:class => "me-3 py-2 text-dark text-decoration-none"} %>
+                <% end%>
                 <%= link_to t('.switch-language-icon'), {locale: (locale == :en ? :uk : :en)}, class: "me-3 py-2 text-dark text-decoration-none", alt: t('.switch-language-alt') %>
             </nav>
         </div>

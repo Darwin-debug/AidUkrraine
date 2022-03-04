@@ -55,7 +55,13 @@ class ProposalsList extends React.Component {
             <div>
                 {this.state.proposals.map(proposal => <Proposal proposal={proposal} key={proposal.id} showEditButton={this.props.userEmail == proposal.user_email} />)}
                 <div className="card" style={{ margin: 30 + "px" }}>
-                    <Map center={[51.42169068153824, 18.821976536948544]} zoom={4} scrollWheelZoom={false} style={{ width: '100%', height: '300px' }}>
+                    <Map
+                        center={[51.42169068153824, 18.821976536948544]}
+                        zoom={4}
+                        scrollWheelZoom={false}
+                        style={{ width: '100%', height: '300px' }}
+                        zoomControl={false}>
+                        <ZoomControl position="bottomright" />
                         <TileLayer
                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -87,7 +93,7 @@ class SearchField extends React.Component {
     }
 
     input(event) {
-        const url = this.props.action + "?" + this.props.field + "=" + encodeURIComponent(event.target.value);
+        const url = `${this.props.action}?${this.props.field}=${encodeURIComponent(event.target.value)}`;
         fetch(url).then((response) => response.json()).then(result => this.updateProposals(result));
     }
 

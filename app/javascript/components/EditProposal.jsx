@@ -89,7 +89,7 @@ const EditProposal = ({ action, method, id }) => {
                         style={{ width: '80%', height: '300px' }}
                         zoomControl={false}
                     >
-                        <ZoomControl position="topright" />
+                        <ZoomControl position="bottomright" />
                         
                         <ReactLeafletSearch
                             inputPlaceholder="City name / Назву міста"

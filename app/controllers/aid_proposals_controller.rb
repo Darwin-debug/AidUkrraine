@@ -24,7 +24,7 @@ class AidProposalsController < ApplicationController
 
   # GET /aid_appovals_approve/1
   def approve
-    @aid_proposal.update(approved: true)
+    @aid_proposal.update!(approved: true)
     send_to_telegram
     respond_to do |format|
         format.html { redirect_to aid_proposal_url(@aid_proposal), alert: "Aid proposal approved" }
@@ -34,7 +34,7 @@ class AidProposalsController < ApplicationController
 
   # GET /aid_approvals_deny/1
   def decline
-    @aid_proposal.update(approved: false)
+    @aid_proposal.update!(approved: false)
     respond_to do |format|
         format.html { redirect_to aid_proposal_url(@aid_proposal), alert: "Aid proposal declined" }
         format.json { render :show, status: :created, location: @aid_proposal }
@@ -114,7 +114,7 @@ class AidProposalsController < ApplicationController
     end
 
     def validate_owner
-      if @aid_proposal.user_email != current_user.email
+      if (@aid_proposal.user_email != current_user.email) && current_user.moderator != true
         redirect_to aid_proposals_url
       end
     end

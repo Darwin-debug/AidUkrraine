@@ -4,7 +4,7 @@
 
 
   <div class="row">
-    <% if user_signed_in? && current_user.email == @aid_proposal.user_email %>
+    <% if user_signed_in? && (current_user.email == @aid_proposal.user_email || current_user.moderator) %>
       <div class="col-4">
         <%= link_to "Edit / Редагувати", edit_aid_proposal_path(@aid_proposal), class: "btn btn-outline-dark" %>
       </div>

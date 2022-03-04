@@ -51,6 +51,8 @@ gem 'webpacker'
 gem "bootstrap_form", "~> 5.0"
 gem 'devise-i18n'
 gem 'globalize'
+
+gem "recaptcha", require: "recaptcha/rails"
 # Use Sass to process CSS
 # gem "sassc-rails"
 

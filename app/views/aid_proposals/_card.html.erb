@@ -20,7 +20,7 @@
       <%= simple_format(aid_proposal.contact) %>
     </p>
     
-    <% if user_signed_in? && current_user.email == aid_proposal.user_email %>
+    <% if user_signed_in? && (current_user.email == aid_proposal.user_email || current_user.moderator) %>
       <%= link_to "Update / Оновити", edit_aid_proposal_path(aid_proposal), class: "card-link" %> 
     <% end %>
   </div>

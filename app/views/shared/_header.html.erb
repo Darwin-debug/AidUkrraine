@@ -8,6 +8,9 @@
                 <%= link_to t('.become-a-volonteer'), new_aid_proposal_path, class: "btn btn-dark me-3 py-2 text-decoration-none"%>
                 <% if user_signed_in? %>
                 <%= link_to t('.my-proposals'), {controller: 'aid_proposals', action: 'my_proposals'}, {:class => "me-3 py-2 text-dark text-decoration-none"} %>
+                <% if current_user.moderator == true%>
+                    <%= link_to t('.review-proposals'), {controller: 'aid_proposals', action: 'index_to_validate'}, {:class => "me-3 py-2 text-dark text-decoration-none"} %>
+                <%end %>
                 <%= link_to t('.sign-out'), destroy_user_session_path, {:method => :delete, :class => "me-3 py-2 text-dark text-decoration-none"} %>
                 <% else %>
                 <%= link_to t('.sign-in'), new_user_session_path, {:class => "me-3 py-2 text-dark text-decoration-none"} %>

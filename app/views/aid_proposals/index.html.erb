@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Aid proposals / Шукаючі гуманітарну допомогу</h1>
+<h1>Help Ukraine to help the world / Допоможіть Україні, щоб допомогти Європі</h1>
 
 
 <br>
@@ -24,7 +24,7 @@
 <div class="proposals-container" data-proposals="<%=@aid_proposals.to_json%>" data-user-email="<%=user_signed_in? ? current_user.email : '' %>">
 </div>
 
-<%= link_to "Стати волонтером", new_aid_proposal_path, class: "btn btn-info" %>
+<%= link_to "Стати волонтером", new_aid_proposal_path, class: "btn btn-dark" %>
 <br>
 <br>
 

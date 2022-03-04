@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Map, Marker, TileLayer } from 'react-leaflet';
+import { Map, Marker, TileLayer, ZoomControl } from 'react-leaflet';
 
 import markerIcon from '../markerIcon';
 

@@ -6,6 +6,7 @@ uk:
       switch-language-icon: "EN"
       switch-language-alt: "Змінити мову на англійську"
       sign-out: Вийти з облікового запису
+      my-proposals: Мої заявки
   static_pages:
     home:
       provide-aid: "Надати допомогу"
@@ -14,3 +15,17 @@ uk:
   aid_proposals:
     new:
       become-volonteer: "Стати волонтером"
+    create:
+      success: "Ваша зявка успішно створена. Наш модератор її перегляне і в найближчий час вона з'явиться на сайті."
+  proposal:
+    country: "Країна"
+    city: "Місто"
+    description: "Опис"
+    name: "Ім'я"
+    contacts: "Контактна інформація"
+    approval-status-name: "Статус заявки"
+    approval-status:
+      under-review: "Обробляється"
+      approved: "Схвалено"
+      declined: "Відхилено"
+    details-button: "Більше деталей"

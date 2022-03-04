@@ -1,6 +1,6 @@
 class AidProposalsController < ApplicationController
   before_action :set_aid_proposal, only: %i[ show edit update destroy approve decline ]
-  before_action :authenticate_user!, only: [:edit, :create, :update, :new, :index_to_validate, :approve, :decline]
+  before_action :authenticate_user!, only: [:edit, :create, :update, :new, :index_to_validate, :approve, :decline, :my_proposals]
   before_action :validate_owner, only: [:edit, :update, :destroy]
   before_action :validate_moderator, only: [:index_to_validate, :approve, :decline]
   
@@ -16,6 +16,10 @@ class AidProposalsController < ApplicationController
   # Get /aid_proposals_validate
   def index_to_validate
     @aid_proposals = AidProposal.where(approved: nil)
+  end
+
+  def my_proposals
+    @aid_proposals = AidProposal.where(user_email: current_user.email)
   end
 
   # GET /aid_appovals_approve/1
@@ -57,7 +61,7 @@ class AidProposalsController < ApplicationController
     respond_to do |format|
       if @aid_proposal.save
         send_to_telegram
-        format.html { redirect_to aid_proposal_url(@aid_proposal), notice: "Aid proposal was successfully created." }
+        format.html { redirect_to aid_proposal_url(@aid_proposal), notice: I18.t('aid_proposals.create.success')}
         format.json { render :show, status: :created, location: @aid_proposal }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -117,10 +121,7 @@ class AidProposalsController < ApplicationController
 
     def validate_moderator
       if current_user.moderator != true
-        respond_to do |format|
-          format.html { redirect_to aid_proposals_url, notice: "Sorry, you don't have rights to access this page." }
-          format.json { head :no_content}
-        end
+        redirect_to aid_proposals_url, notice: "Sorry, you don't have rights to access this page."
       end
     end
 

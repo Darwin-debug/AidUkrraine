@@ -37,6 +37,7 @@ en:
       switch-language-icon: "UA"
       switch-language-alt: "Switch Language to Ukrainian"
       sign-out: Sign out
+      my-proposals: My proposals
   static_pages:
     home:
       provide-aid: "Provide aid"
@@ -45,3 +46,15 @@ en:
   aid_proposals:
     new:
       become-volonteer: "Register as a volonteer"
+  proposal:
+    country: "Country"
+    city: "City"
+    description: "Description"
+    name: "Name"
+    contacts: "Contacts"
+    approval-status-name: "Approval status"
+    approval-status:
+      under-review: "Under review"
+      approved: "Approved"
+      declined: "Declined"
+    details-button: "Details"

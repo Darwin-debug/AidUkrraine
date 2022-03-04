@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get '/aid_proposals_validate', to: 'aid_proposals#index_to_validate'
   get '/aid_proposals_approve/:id', to: 'aid_proposals#approve'
   get '/aid_proposals_decline/:id', to: 'aid_proposals#decline'
+  get '/my_proposals', to: 'aid_proposals#my_proposals'
 end

@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>My proposals</h1>
+<h1><%=t('.title')%></h1>
 
 <div id="aid_proposals">
 <table class="table">
@@ -46,5 +46,5 @@
 <br>
 <br>
 
-<%= link_to "Back to all aid proposals", aid_proposals_path, class: "btn btn-outline-dark" %>
+<%= link_to t('proposal.back-to-all-button'), aid_proposals_path, class: "btn btn-outline-dark" %>
 

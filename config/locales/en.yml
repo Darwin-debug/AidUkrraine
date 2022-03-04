@@ -46,6 +46,8 @@ en:
   aid_proposals:
     new:
       become-volonteer: "Register as a volonteer"
+    my_proposals:
+      title: "My proposals"
   proposal:
     country: "Country"
     city: "City"
@@ -58,3 +60,4 @@ en:
       approved: "Approved"
       declined: "Declined"
     details-button: "Details"
+    back-to-all-button: "To all aid proposals"

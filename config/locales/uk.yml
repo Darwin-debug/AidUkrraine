@@ -17,6 +17,8 @@ uk:
       become-volonteer: "Стати волонтером"
     create:
       success: "Ваша зявка успішно створена. Наш модератор її перегляне і в найближчий час вона з'явиться на сайті."
+    my_proposals:
+      title: "Мої заявки"
   proposal:
     country: "Країна"
     city: "Місто"
@@ -29,3 +31,4 @@ uk:
       approved: "Схвалено"
       declined: "Відхилено"
     details-button: "Більше деталей"
+    back-to-all-button: "До списку всіх волонтерів"

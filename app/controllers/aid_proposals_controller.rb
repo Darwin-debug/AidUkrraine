@@ -27,7 +27,7 @@ class AidProposalsController < ApplicationController
     @aid_proposal.update(approved: true)
     send_to_telegram
     respond_to do |format|
-        format.html { redirect_to aid_proposal_url(@aid_proposal), notice: "Aid proposal approved" }
+        format.html { redirect_to aid_proposal_url(@aid_proposal), alert: "Aid proposal approved" }
         format.json { render :show, status: :created, location: @aid_proposal }
     end
   end
@@ -36,7 +36,7 @@ class AidProposalsController < ApplicationController
   def decline
     @aid_proposal.update(approved: false)
     respond_to do |format|
-        format.html { redirect_to aid_proposal_url(@aid_proposal), notice: "Aid proposal declined" }
+        format.html { redirect_to aid_proposal_url(@aid_proposal), alert: "Aid proposal declined" }
         format.json { render :show, status: :created, location: @aid_proposal }
     end
   end
@@ -61,7 +61,7 @@ class AidProposalsController < ApplicationController
     respond_to do |format|
       if @aid_proposal.save
         send_to_telegram
-        format.html { redirect_to aid_proposal_url(@aid_proposal), notice: I18.t('aid_proposals.create.success')}
+        format.html { redirect_to aid_proposal_url(@aid_proposal), alert: I18.t('aid_proposals.create.success')}
         format.json { render :show, status: :created, location: @aid_proposal }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -75,7 +75,7 @@ class AidProposalsController < ApplicationController
     respond_to do |format|
       if @aid_proposal.update(aid_proposal_params)
         send_to_telegram
-        format.html { redirect_to aid_proposal_url(@aid_proposal), notice: "Aid proposal was successfully updated." }
+        format.html { redirect_to aid_proposal_url(@aid_proposal), alert: "Aid proposal was successfully updated." }
         format.json { render :show, status: :ok, location: @aid_proposal }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -89,7 +89,7 @@ class AidProposalsController < ApplicationController
     @aid_proposal.destroy
 
     respond_to do |format|
-      format.html { redirect_to aid_proposals_url, notice: "Aid proposal was successfully destroyed." }
+      format.html { redirect_to aid_proposals_url, alert: "Aid proposal was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -121,7 +121,7 @@ class AidProposalsController < ApplicationController
 
     def validate_moderator
       if current_user.moderator != true
-        redirect_to aid_proposals_url, notice: "Sorry, you don't have rights to access this page."
+        redirect_to aid_proposals_url, alert: "Sorry, you don't have rights to access this page."
       end
     end
 

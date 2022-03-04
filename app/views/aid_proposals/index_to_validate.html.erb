@@ -8,10 +8,11 @@
   <thead>
       <th scope="col">Country</th>
       <th scope="col">City</th>
-      <th scope="col">Items</th>
+      <th scope="col">Description</th>
       <th scope="col">Name</th>
       <th scope="col">Contact information</th>
-
+      <th></th>
+      <th></th>
   </thead>
   <tbody>
     <% @aid_proposals.each do |aid_proposal| %>
@@ -25,6 +26,8 @@
         <td>   <%= aid_proposal.contact%> </td>
         <td>
           <%= link_to "Approve", {:action => :approve, :id => aid_proposal.id}, class: "btn btn-dark" %>
+        </td>
+        <td>
           <%= link_to "Deny", {:action => :approve, :id => aid_proposal.id}, class: "btn btn-outline-dark" %>
         </td>
       </tr>

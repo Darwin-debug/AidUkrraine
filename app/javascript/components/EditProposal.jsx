@@ -124,7 +124,6 @@ const EditProposal = ({ action, method, id }) => {
                     </label>
                     <input
                         form="editAidProposal"
-                        readOnly
                         className="form-control"
                         onChange={onChange}
                         name="aid_proposal[country]"
@@ -140,7 +139,6 @@ const EditProposal = ({ action, method, id }) => {
                     </label>
                     <input
                         form="editAidProposal"
-                        readOnly
                         className="form-control"
                         onChange={onChange}
                         name="aid_proposal[city]"

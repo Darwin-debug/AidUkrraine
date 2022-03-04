@@ -78,7 +78,7 @@ class AidProposalsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def aid_proposal_params
-      params.require(:aid_proposal).permit(:full_name, :country, :city, :description, :date, :contact, :url)
+      params.require(:aid_proposal).permit(:full_name, :country, :city, :description, :date, :contact, :url, :lat, :lng)
     end
 
     def aid_proposal_search_params

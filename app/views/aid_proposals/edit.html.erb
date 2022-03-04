@@ -1,6 +1,11 @@
 <h1>Editing aid proposal</h1>
 
-<%= render "form", aid_proposal: @aid_proposal %>
+<div
+  id="editContainer"
+  data-id="<%= @aid_proposal.id %>"
+  data-action="<%= aid_proposal_path %>"
+  data-method="put"
+/>
 
 <br>
 
@@ -8,3 +13,5 @@
   <%= link_to "Show this aid proposal", @aid_proposal %> |
   <%= link_to "Back to aid proposals", aid_proposals_path %>
 </div>
+
+<%= javascript_pack_tag 'aid_proposal_edit' %>

@@ -58,8 +58,8 @@ const EditProposal = ({ action, method, id }) => {
     return (
         <>
             <form id="editAidProposal" action={action} method="post" onSubmit={saveAidProposal} hidden >
-                <input name="aid_proposal[lat]" value={aidProposal.lat} hidden />
-                <input name="aid_proposal[lng]" value={aidProposal.lng} hidden />
+                <input name="aid_proposal[lat]" value={aidProposal.lat} hidden readOnly />
+                <input name="aid_proposal[lng]" value={aidProposal.lng} hidden readOnly />
             </form>
             <div className="container container-sm">
                 <Errors errors={errors.common} />

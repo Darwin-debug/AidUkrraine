@@ -178,7 +178,7 @@ const EditProposal = ({ action, method, id }) => {
                     <Errors errors={errors.contact} />
                 </div>
                 <div className="mb-3">
-                    <button form="editAidProposal" type="submit" className="btn btn-dark">
+                    <button form="editAidProposal" type="submit" className="btn btn-dark me-3">
                         {
                             updateLoading ? (
                                 <>
@@ -190,6 +190,7 @@ const EditProposal = ({ action, method, id }) => {
                             )
                         }
                     </button>
+                    <a className="btn btn-outline-dark" href="/aid_proposals">Back / Повернутися до списку волнтерів</a>
                 </div>
             </div>
         </>

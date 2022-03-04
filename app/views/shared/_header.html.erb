@@ -4,7 +4,7 @@
             
             <a href="<%= root_path %>" class="text-dark text-decoration-none"><h3 class="float-md-start mb-0 fs-4">AID Ukraine</h3></a>
             <nav class="d-inline-flex mt-3 ms-md-auto">
-                <%= link_to t('.provide-aid'), aid_proposals_path, class: "btn btn-outline-dark me-3 py-2 text-dark text-decoration-none font"%>
+                <%= link_to t('.provide-aid'), aid_proposals_path, class: "btn btn-outline-dark me-3 py-2 text-decoration-none font"%>
                 <%= link_to t('.become-a-volonteer'), new_aid_proposal_path, class: "btn btn-dark me-3 py-2 text-decoration-none"%>
                 <% if user_signed_in? %>
                 <%= link_to t('.my-proposals'), {controller: 'aid_proposals', action: 'my_proposals'}, {:class => "me-3 py-2 text-dark text-decoration-none"} %>

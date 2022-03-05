@@ -5,15 +5,15 @@ import MapInput from './MapInput';
 
 import useEditAidProposal from './hooks/useEditAidProposal';
 
-const DateSelector = ({date, error, onChangeOuter, onResetDate}) => {
+const DateSelector = ({date, error, changeDate}) => {
     const intl = useIntl();
     const [ regularityState, setRegularityState] = useState( date ? "specific" : "regular"); 
 
     const onChangeRegularity = (e) => {
         setRegularityState(e.target.value);
-        onResetDate();
+        if (regularityState === 'specific') changeDate('');
     }
-    const onChange = (e) => onChangeOuter(e);
+    const onChange = (e) => changeDate(e.target.value);
   
     return (
         <>
@@ -64,10 +64,10 @@ const EditProposal = ({ action, method, id }) => {
         });
     }
 
-    const onReset = (field) => {
+    const changeDate = (value) => {
         setAidProposal({
             ...aidProposal,
-            field : null,
+            date: value,
         });
     }
 
@@ -153,7 +153,7 @@ const EditProposal = ({ action, method, id }) => {
                     <input form="editAidProposal" className="form-control" onChange={onChange} name="aid_proposal[url]" id="url" type="url" value={aidProposal.url || ''} />
                     <Errors errors={errors.url} />
                 </div>
-                <DateSelector date={aidProposal.date} error={errors.date} onChangeOuter={onChange} onResetDate={onReset.bind(this, 'date')} />
+                <DateSelector date={aidProposal.date} error={errors.date} changeDate={changeDate} />
                 <div className="mb-3">
                     <label htmlFor="contact" className="form-label required">
                         {intl.formatMessage({

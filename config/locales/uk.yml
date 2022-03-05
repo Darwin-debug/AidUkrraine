@@ -6,6 +6,7 @@ uk:
       switch-language-icon: "EN"
       switch-language-alt: "Змінити мову на англійську"
       my-proposals: Мої заявки
+      review_proposals: "Перевірити заявки"
       sign-out: Вийти з облікового запису
       sign-in: Увійти
   static_pages:

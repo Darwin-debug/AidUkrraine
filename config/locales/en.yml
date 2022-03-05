@@ -36,7 +36,8 @@ en:
       become-a-volnteer: "Become a volonteer"
       switch-language-icon: "UA"
       switch-language-alt: "Switch Language to Ukrainian"
-      my-proposals: My proposals
+      my-proposals: "My proposals"
+      review_proposals: "Review Proposals"
       sign-out: Sign out
       sign-in: Login
   static_pages:

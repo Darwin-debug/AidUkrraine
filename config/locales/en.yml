@@ -46,6 +46,10 @@ en:
       become-a-volnteer: "Become a volonteer"
       heading: Let's provide humanitarian aid to Ukraine!
   aid_proposals:
+    create:
+      success: "Aid proposal was successfully created."
+    update:
+      success: "Aid proposal was successfully updated."
     index_to_validate:
       title: "Unvalidated aid proposals"
       approve: "Approve"

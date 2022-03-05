@@ -1,5 +1,9 @@
-<p style="color: green"><%= notice %></p>
+<% if params[:alert] %>
+  <p class="alert alert-primary"><%= t(params[:alert]) %></p>
+<% end%>
 
+
+<%= params[alert] %>
 <%= render @aid_proposal %>
 
 

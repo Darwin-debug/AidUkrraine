@@ -15,6 +15,8 @@ uk:
       become-a-volonteer: "Стати волонтером"
       heading:  Надаймо гуманітарну допомогу Україні!
   aid_proposals:
+    update:
+      success: "Пропозицію про допомогу успішно оновлено."
     index_to_validate:
       title: "Непромодеровані заявки"
       approve: "Затвердити"

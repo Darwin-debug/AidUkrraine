@@ -49,7 +49,7 @@ export default ({ id, action, method }) => {
                     setErrors(body);
                     return;
                 }
-                window.location = `/aid_proposals/${body.id}`
+                window.location = `/aid_proposals/${body.id}?alert=aid_proposals.${id ? 'update' : 'create'}.success`
             })
             .catch(e => {
                 setErrors({ common: [e] });

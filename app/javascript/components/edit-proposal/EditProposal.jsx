@@ -5,43 +5,43 @@ import MapInput from './MapInput';
 
 import useEditAidProposal from './hooks/useEditAidProposal';
 
-const DateSelector = ({date, error, onChangeOuter, onResetDate}) => {
+const DateSelector = ({ date, error, changeDate }) => {
     const intl = useIntl();
-    const [ regularityState, setRegularityState] = useState( date ? "specific" : "regular"); 
+    const [regularityState, setRegularityState] = useState(date ? "specific" : "regular");
 
     const onChangeRegularity = (e) => {
         setRegularityState(e.target.value);
-        onResetDate();
+        if (regularityState === 'specific') changeDate('');
     }
-    const onChange = (e) => onChangeOuter(e);
-  
+    const onChange = (e) => changeDate(e.target.value);
+
     return (
         <>
-        <div className="mb-3">
-            <div onChange={onChangeRegularity} className="row">
-                <div className="col-md-6">
-                <input type="radio" value="specific" name="date-set" defaultChecked={regularityState == "specific"} />
-                Departing at specific time
-                </div>
-                <div className="col-md-6">
-                <input type="radio" value="regular" name="date-set" defaultChecked={regularityState == "regular"} /> 
-                    Departing regularly
+            <div className="mb-3">
+                <div onChange={onChangeRegularity} className="row">
+                    <div className="col-md-6">
+                        <input type="radio" value="specific" name="date-set" defaultChecked={regularityState == "specific"} />
+                        Departing at specific time
+                    </div>
+                    <div className="col-md-6">
+                        <input type="radio" value="regular" name="date-set" defaultChecked={regularityState == "regular"} />
+                        Departing regularly
+                    </div>
                 </div>
             </div>
-        </div>
 
-        {regularityState == 'specific' && 
-            <div className="mb-3">
-                <label htmlFor="date" className="form-label required">
-                    {intl.formatMessage({
-                        id: 'aid_proposals.edit.form.date'
-                    })}
-                </label>
-                
-                <input form="editAidProposal" className="form-control" onChange={onChange} name="aid_proposal[date]" id="date" type="date" value={date || ''} />
-                <Errors errors={error} />
-            </div>  
-        } 
+            {regularityState == 'specific' &&
+                <div className="mb-3">
+                    <label htmlFor="date" className="form-label required">
+                        {intl.formatMessage({
+                            id: 'aid_proposals.edit.form.date'
+                        })}
+                    </label>
+
+                    <input form="editAidProposal" className="form-control" onChange={onChange} name="aid_proposal[date]" id="date" type="date" value={date || ''} />
+                    <Errors errors={error} />
+                </div>
+            }
         </>
     )
 };
@@ -64,10 +64,10 @@ const EditProposal = ({ action, method, id }) => {
         });
     }
 
-    const onReset = (field) => {
+    const changeDate = (value) => {
         setAidProposal({
             ...aidProposal,
-            field : null,
+            date: value,
         });
     }
 
@@ -104,9 +104,9 @@ const EditProposal = ({ action, method, id }) => {
                 />
                 <div className="mb-3">
                     <label htmlFor="country" className="form-label required">
-                    {intl.formatMessage({
-                        id: 'aid_proposals.edit.form.country'
-                    })}
+                        {intl.formatMessage({
+                            id: 'aid_proposals.edit.form.country'
+                        })}
                     </label>
                     <input
                         form="editAidProposal"
@@ -121,9 +121,9 @@ const EditProposal = ({ action, method, id }) => {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="city" className="form-label required">
-                    {intl.formatMessage({
-                        id: 'aid_proposals.edit.form.city'
-                    })}
+                        {intl.formatMessage({
+                            id: 'aid_proposals.edit.form.city'
+                        })}
                     </label>
                     <input
                         form="editAidProposal"
@@ -153,7 +153,7 @@ const EditProposal = ({ action, method, id }) => {
                     <input form="editAidProposal" className="form-control" onChange={onChange} name="aid_proposal[url]" id="url" type="url" value={aidProposal.url || ''} />
                     <Errors errors={errors.url} />
                 </div>
-                <DateSelector date={aidProposal.date} error={errors.date} onChangeOuter={onChange} onResetDate={onReset.bind(this, 'date')} />
+                <DateSelector date={aidProposal.date} error={errors.date} changeDate={changeDate} />
                 <div className="mb-3">
                     <label htmlFor="contact" className="form-label required">
                         {intl.formatMessage({
@@ -186,7 +186,7 @@ const EditProposal = ({ action, method, id }) => {
                         })}
                     </a>
                 </div>
-            </div>
+            </div >
         </>
     );
 };

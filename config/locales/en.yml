@@ -75,6 +75,8 @@ en:
         city: "City"
         description: "Description of the items needed"
         url: "Additional URL"
+        date-regular: "Sending items regularly"
+        date-specific: "Departure on a specific day"
         date: "Departure date"
         contact: "Contact information"
         update: "Update"

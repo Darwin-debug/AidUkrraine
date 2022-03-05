@@ -33,7 +33,7 @@ export default ({ id, action, method }) => {
     }, [id]);
 
     const saveAidProposal = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         const body = new FormData(e.target);
         body.set('_method', method)
         body.set('authenticity_token', token);

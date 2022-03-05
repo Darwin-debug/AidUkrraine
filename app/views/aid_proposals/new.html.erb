@@ -2,17 +2,13 @@
 
 <div>
 <p>
-  Hello!<br>
-  If you are planning to provide humanitarian aid to Ukraine and would like for other people to help you out, you can fill out the form below and your data will appear on the main page for all the people to see.
-</p>
-<p>
-  Привіт!<br> 
-  Якщо ти плануєш надати гуманітарну допомогу Україні і хотів би, щоб інші люди тобі допомогли, ти можеш заповнити форму нижче і твої дані з'являться на головній сторінці в загальному доступі. 
+  <%= t('.hello')%><br>
+  <%= t('.subtitle')%>
 </p>
 </div>
 <div id="editContainer"
   data-action="<%= aid_proposals_path %>"
   data-method="post"
-/>
+></div>
 
 <%= javascript_pack_tag 'aid_proposal_edit' %>

@@ -36,7 +36,8 @@ en:
       become-a-volnteer: "Become a volonteer"
       switch-language-icon: "UA"
       switch-language-alt: "Switch Language to Ukrainian"
-      my-proposals: My proposals
+      my-proposals: "My proposals"
+      review_proposals: "Review Proposals"
       sign-out: Sign out
       sign-in: Login
   static_pages:
@@ -45,10 +46,36 @@ en:
       become-a-volnteer: "Become a volonteer"
       heading: Let's provide humanitarian aid to Ukraine!
   aid_proposals:
+    index_to_validate:
+      title: "Unvalidated aid proposals"
+      approve: "Approve"
+      deny: "Deny"
     new:
       become-volonteer: "Register as a volonteer"
+      hello: "Hello!"
+      subtitle: "If you are planning to provide humanitarian aid to Ukraine and would like for other people to help you out, you can fill out the form below and your data will appear on the main page for all the people to see."
     my_proposals:
       title: "My proposals"
+    index:
+      title: "Help Ukraine help the world"
+      subtitle: "Aid proposals"
+      description: "This page shows a list of people who are currently collecting resources to be send to Ukraine. If you have the opportunity, please contact people near you and help Ukraine!"
+      search: "Search"
+      proposal_details: "View details"
+    edit:
+      title: 'Editing proposal'
+      form:
+        full_name: "Full name"
+        type_city_name: "Type city name"
+        country: "Country"
+        city: "City"
+        description: "Description of the items needed"
+        url: "Addition URL"
+        date: "Departure date"
+        contact: "Contact information"
+        update: "Update"
+        register: "Register"
+        back: "Back"
   proposal:
     country: "Country"
     city: "City"
@@ -62,3 +89,8 @@ en:
       declined: "Declined"
     details-button: "Details"
     back-to-all-button: "To all aid proposals"
+    date: "Date"
+    proposal_info: "Proposal info"
+    edit: "Edit"
+    all_proposals: "All proposals"
+    remove_proposal: "Remove proposal"

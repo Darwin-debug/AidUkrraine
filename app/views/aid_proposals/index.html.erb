@@ -1,32 +1,23 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Help Ukraine help the world / Допоможіть Україні допомогти світу</h1>
+<h1><%= t('.title') %></h1>
 
 
 <br>
 <div class="jumbotron">
-<p>
-  На даній сторінці показано список людей, які зараз збирають ресурси для відправки на Україну. Якщо у вас є можливість, будь ласка, зв'яжіться з людьми поряд з вами й допоможіть Україні!
-</p>
-<p>
-  This page shows a list of people who are currently collecting resources to be send to Ukraine. If you have the opportunity, please contact people near you and help Ukraine!
-</p>
+<p><%= t('.description') %></p>
 </div>
 <br>
 
-<h2>Aid proposals / Пункти збору гуманітарної допомоги</h2>
+<h2><%= t('.subtitle') %></h2>
 <%# Rendered in react at aid_proposal.jsx. %>
-<div class="row">
-    <div class="col" ></div>
-    <div class="col" ></div>
-    <div class="search-field-container col align-self-end" data-field="search_query" data-action="aid_proposals.json" ></div>
-</div>
-<br>
+<div id="proposals_container" 
+  data-locale="<%= I18n.locale %>"
+  data-field="search_query"
+  data-action="aid_proposals.json"
+></div>
 
-<div class="proposals-container" data-proposals="<%=@aid_proposals.to_json%>" data-user-email="<%=user_signed_in? ? current_user.email : '' %>">
-</div>
-
-<%= link_to "Стати волонтером", new_aid_proposal_path, class: "btn btn-dark" %>
+<%= link_to t('shared.header.become-a-volonteer'), new_aid_proposal_path, class: "btn btn-dark" %>
 <br>
 <br>
 

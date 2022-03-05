@@ -1,17 +1,11 @@
-<h1>Editing aid proposal</h1>
+<h1><%= t('.title')%></h1>
 
 <div
   id="editContainer"
   data-id="<%= @aid_proposal.id %>"
   data-action="<%= aid_proposal_path %>"
   data-method="put"
-/>
-
-<br>
-
-<div>
-  <%= link_to "Show this aid proposal", @aid_proposal %> |
-  <%= link_to "Back to aid proposals", aid_proposals_path %>
-</div>
+  data-locale="<%= I18n.locale %>"
+></div>
 
 <%= javascript_pack_tag 'aid_proposal_edit' %>

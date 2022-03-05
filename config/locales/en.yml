@@ -46,6 +46,10 @@ en:
       become-a-volnteer: "Become a volonteer"
       heading: Let's provide humanitarian aid to Ukraine!
   aid_proposals:
+    index_to_validate:
+      title: "Unvalidated aid proposals"
+      approve: "Approve"
+      deny: "Deny"
     new:
       become-volonteer: "Register as a volonteer"
       hello: "Hello!"
@@ -58,7 +62,6 @@ en:
       description: "This page shows a list of people who are currently collecting resources to be send to Ukraine. If you have the opportunity, please contact people near you and help Ukraine!"
       search: "Search"
       proposal_details: "View details"
-      become_volonteer: "Become a Volonteer"
     edit:
       title: 'Editing proposal'
       form:

@@ -1,16 +1,16 @@
 
 <p style="color: green"><%= notice %></p>
 
-<h1>Unvalidated aid proposals</h1>
+<h1><%= t('.title')%></h1>
 
 <div id="aid_proposals">
 <table class="table">
   <thead>
-      <th scope="col">Country</th>
-      <th scope="col">City</th>
-      <th scope="col">Description</th>
-      <th scope="col">Name</th>
-      <th scope="col">Contact information</th>
+      <th scope="col"><%= t('proposal.country')%></th>
+      <th scope="col"><%= t('proposal.city')%></th>
+      <th scope="col"><%= t('proposal.description')%></th>
+      <th scope="col"><%= t('proposal.name')%></th>
+      <th scope="col"><%= t('proposal.contacts')%></th>
       <th></th>
       <th></th>
   </thead>
@@ -25,10 +25,10 @@
         <td>   <%= aid_proposal.full_name%> </td>
         <td>   <%= aid_proposal.contact%> </td>
         <td>
-          <%= link_to "Approve", {:action => :approve, :id => aid_proposal.id}, class: "btn btn-dark" %>
+          <%= link_to t('.approve'), {:action => :approve, :id => aid_proposal.id}, class: "btn btn-dark" %>
         </td>
         <td>
-          <%= link_to "Deny", {:action => :decline, :id => aid_proposal.id}, class: "btn btn-outline-dark" %>
+          <%= link_to t('.deny'), {:action => :decline, :id => aid_proposal.id}, class: "btn btn-outline-dark" %>
         </td>
       </tr>
     <% end %>
@@ -44,6 +44,6 @@
 <br>
 <br>
 
-<%= link_to "Стати волонтером", new_aid_proposal_path, class: "btn btn-dark" %>
+<%= link_to t('shared.header.become-a-volonteer'), new_aid_proposal_path, class: "btn btn-dark" %>
 
 

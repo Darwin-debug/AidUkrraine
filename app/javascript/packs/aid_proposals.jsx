@@ -5,8 +5,6 @@ import AidProposals from '../components/aid-proposals/AidProposals';
 
 const proposalsContainer = document.body.querySelector("#proposals_container");
 
-console.log(proposalsContainer)
-
 ReactDOM.render(
     <LocaleProvider locale={proposalsContainer.dataset.locale}>
         <AidProposals

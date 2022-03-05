@@ -19,7 +19,7 @@
         <td>   <%= aid_proposal.country%> </td>
         <td>   <%= aid_proposal.city%> </td>
         <td>   <%= (aid_proposal.url? ?
-           (link_to "Link", aid_proposal.url, class: "text-dark")
+           (link_to t('proposal.link'), aid_proposal.url, class: "text-dark")
           : aid_proposal.description) %> </td>
         <td>   <%= aid_proposal.full_name%> </td>
         <td>   <%= aid_proposal.contact%> </td>

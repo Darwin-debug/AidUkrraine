@@ -29,7 +29,7 @@ const EditProposal = ({ action, method, id }) => {
                 <input name="aid_proposal[lat]" value={aidProposal.lat || ''} hidden readOnly />
                 <input name="aid_proposal[lng]" value={aidProposal.lng || ''} hidden readOnly />
             </form>
-            <div className="container container-sm">
+            <div>
                 <Errors errors={errors.common} />
                 <div className="mb-3">
                     <label htmlFor="full_name" className="form-label required">

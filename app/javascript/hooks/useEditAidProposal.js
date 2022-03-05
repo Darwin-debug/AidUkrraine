@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 
 const token = document.querySelector('[name=csrf-token]').content;
 
-export default ({id, action, method }) => {
+export default ({ id, action, method }) => {
     const [aidProposal, setAidProposal] = useState({});
-    const [loading, setLoading ] = useState(true);
-    const [updateLoading, setUpdateLoading ] = useState(false);
-    const [errors, setErrors ] = useState({});
+    const [loading, setLoading] = useState(true);
+    const [updateLoading, setUpdateLoading] = useState(false);
+    const [errors, setErrors] = useState({});
     useEffect(() => {
         if (!id) {
             setLoading(false)

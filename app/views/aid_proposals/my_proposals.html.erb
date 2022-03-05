@@ -1,0 +1,50 @@
+<p style="color: green"><%= notice %></p>
+
+<h1><%=t('.title')%></h1>
+
+<div id="aid_proposals">
+<table class="table">
+  <thead>
+      <th scope="col"><%= t('proposal.country')%></th>
+      <th scope="col"><%= t('proposal.city')%></th>
+      <th scope="col"><%= t('proposal.description')%></th>
+      <th scope="col"><%= t('proposal.name')%></th>
+      <th scope="col"><%= t('proposal.contacts')%></th>
+      <th><%= t('proposal.approval-status-name')%></th>
+      <td> </th>
+  </thead>
+  <tbody>
+    <% @aid_proposals.each do |aid_proposal| %>
+      <tr>
+        <td>   <%= aid_proposal.country%> </td>
+        <td>   <%= aid_proposal.city%> </td>
+        <td>   <%= (aid_proposal.url? ?
+           (link_to "Link", aid_proposal.url, class: "text-dark")
+          : aid_proposal.description) %> </td>
+        <td>   <%= aid_proposal.full_name%> </td>
+        <td>   <%= aid_proposal.contact%> </td>
+        <td>   <%=  
+          if aid_proposal.approved.nil?
+            t('proposal.approval-status.under-review')
+          else
+            aid_proposal.approved? ?
+            t('proposal.approval-status.approved') : t('proposal.approval_status.declined')
+            end
+        %> </td>
+        <td>   <%= link_to t('proposal.details-button'), aid_proposal_path(aid_proposal) %> </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+
+<%= link_to t('proposal.back-to-all-button'), aid_proposals_path, class: "btn btn-outline-dark" %>
+

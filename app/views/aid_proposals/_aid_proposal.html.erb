@@ -6,38 +6,38 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>Name / Ім'я:</strong></td>
+      <td><strong><%= t('proposal.name')%></strong></td>
       <td><%= aid_proposal.full_name %></td>
     </tr>
 
     <tr>
-      <td><strong>Country / Країна:</strong></td>
+      <td><strong><%= t('proposal.country')%></strong></td>
       <td><%= aid_proposal.country %></td>
     </tr>
     <% if aid_proposal.url? %>
         <tr>
-          <td><strong>Additional info / Додаткова інформація:</strong></td>
-          <td><a href="//<%= aid_proposal.url %>" class="text-dark">Additional info / Додаткова інформація</a></td>
+          <td><strong><%= t('proposal.link-description')%></strong></td>
+          <td><a href="<%= aid_proposal.url %>" class="text-dark"><%=t('proposal.link')%></a></td>
         </tr>
     <% end%>
 
     <tr>
-      <td><strong>City / Місто:</strong></td>
+      <td><strong><%= t('proposal.city')%></strong></td>
       <td><%= aid_proposal.city %></td>
     </tr>
 
     <tr>
-      <td><strong>Description / Опис:</strong></td>
+      <td><strong><%= t('proposal.description')%></strong></td>
       <td><%= simple_format(aid_proposal.description)%></td>
     </tr>
 
     <tr>
-      <td><strong>Date/ Дата:</strong></td>
+      <td><strong><%= t('proposal.date')%></strong></td>
       <td><%= aid_proposal.date%></td>
     </tr>
 
     <tr>
-      <td><strong>Contact / Контакт:</strong></td>
+      <td><strong><%=t('proposal.contacts')%></strong></td>
       <td><%= simple_format(aid_proposal.contact)%></td>
     </tr>
   </tbody>

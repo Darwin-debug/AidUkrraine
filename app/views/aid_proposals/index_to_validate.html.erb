@@ -28,7 +28,7 @@
           <%= link_to "Approve", {:action => :approve, :id => aid_proposal.id}, class: "btn btn-dark" %>
         </td>
         <td>
-          <%= link_to "Deny", {:action => :approve, :id => aid_proposal.id}, class: "btn btn-outline-dark" %>
+          <%= link_to "Deny", {:action => :decline, :id => aid_proposal.id}, class: "btn btn-outline-dark" %>
         </td>
       </tr>
     <% end %>

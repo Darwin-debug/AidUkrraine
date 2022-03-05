@@ -124,6 +124,7 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    json (2.6.1)
     loofah (2.14.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -197,12 +198,8 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.0.6)
-    react_on_rails (13.0.0)
-      addressable
-      connection_pool
-      execjs (~> 2.5)
-      rails (>= 5.2)
-      rainbow (~> 3.0)
+    recaptcha (5.8.1)
+      json
     regexp_parser (2.2.1)
     reline (0.3.1)
       io-console (~> 0.5)
@@ -276,7 +273,7 @@ DEPENDENCIES
   jbuilder
   puma (~> 5.0)
   rails (~> 7.0.2, >= 7.0.2.2)
-  react_on_rails (= 13.0)
+  recaptcha
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.4)

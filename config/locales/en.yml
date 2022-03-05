@@ -70,3 +70,8 @@ en:
       declined: "Declined"
     details-button: "Details"
     back-to-all-button: "To all aid proposals"
+    date: "Date"
+    proposal_info: "Proposal info"
+    edit: "Edit"
+    all_proposals: "All proposals"
+    remove_proposal: "Remove proposal"

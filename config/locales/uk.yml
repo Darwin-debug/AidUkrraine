@@ -43,3 +43,8 @@ uk:
       declined: "Відхилено"
     details-button: "Більше деталей"
     back-to-all-button: "До списку всіх волонтерів"
+    date: "Дата"
+    proposal_info: "Інформація про заявку"
+    edit: "Редагувати"
+    all_proposals: "Всі заявки"
+    remove_proposal: "Видалити заявку"

@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Map, Marker, TileLayer, ZoomControl } from 'react-leaflet';
 import ReactLeafletSearch from "react-leaflet-search";
 import Errors from './Errors';
-import markerIcon from '../markerIcon';
+import { FormattedMessage } from 'react-intl';
 
-import useEditAidProposal from '../hooks/useEditAidProposal';
+import markerIcon from '../../markerIcon';
 
-import { getCity } from '../api';
+import useEditAidProposal from './hooks/useEditAidProposal';
+
+import { getCity } from '../../api';
 
 import 'leaflet/dist/leaflet.css'
 import 'react-leaflet-search/css'
@@ -66,6 +68,9 @@ const EditProposal = ({ action, method, id }) => {
                 <div className="mb-3">
                     <label htmlFor="full_name" className="form-label required">
                         Full name / Ваше ім'я
+                        <FormattedMessage
+                            id="devise.mailer.confirmation_instructions.subject"
+                        />
                     </label>
                     <input
                         form="editAidProposal"

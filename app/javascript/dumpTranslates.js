@@ -5,7 +5,7 @@ const merge = require('lodash/merge');
 
 const OUTPUT_FILE = 'translates.json';
 
-const INPUT_DIR = path.join(process.env.PWD, 'config', 'locales');
+const INPUT_DIR = path.join('config', 'locales');
 
 function getTranslates (accumulator, objOrString, parentPath) {
     

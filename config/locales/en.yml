@@ -74,7 +74,7 @@ en:
         country: "Country"
         city: "City"
         description: "Description of the items needed"
-        url: "Addition URL"
+        url: "Additional URL"
         date: "Departure date"
         contact: "Contact information"
         update: "Update"

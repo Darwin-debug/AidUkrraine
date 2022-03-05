@@ -3,7 +3,6 @@ class AidProposal < ApplicationRecord
     validates :city, :presence => true
     validates :full_name, :presence => true
     validates :contact, :presence => true
-    validates :date, :presence => true
     validates :description, :presence => true
     validates :lat, :presence => true
     validates :lng, :presence => true

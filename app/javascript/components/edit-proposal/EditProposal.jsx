@@ -1,47 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { Map, Marker, TileLayer, ZoomControl } from 'react-leaflet';
-import ReactLeafletSearch from "react-leaflet-search";
+import React from 'react';
+import { useIntl } from 'react-intl'
 import Errors from './Errors';
-import { FormattedMessage } from 'react-intl';
-
-import markerIcon from '../../markerIcon';
+import MapInput from './MapInput';
 
 import useEditAidProposal from './hooks/useEditAidProposal';
 
-import { getCity } from '../../api';
-
-import 'leaflet/dist/leaflet.css'
-import 'react-leaflet-search/css'
-
-const defaultLng = 18.821976536948544;
-const defaultLat = 51.42169068153824;
-
 const EditProposal = ({ action, method, id }) => {
     const { aidProposal, errors, loading, updateLoading, setAidProposal, saveAidProposal } = useEditAidProposal({ id, action, method });
-    const [zoom, setZoom] = useState(id ? 11 : 4);
-    
-    const position = {
-        lat: aidProposal.lat || defaultLat,
-        lng: aidProposal.lng || defaultLng,
-    };
-    const ondragend = (e) => {
-        setAidProposal({
-            ...aidProposal,
-            ...(e.target.getLatLng()),
-        });
-    };
-
-    useEffect(() => {
-        if (!aidProposal.lat) return
-        (async () => {
-            const address = await getCity(aidProposal);
-            setAidProposal({
-                ...aidProposal,
-                ...address,
-            });
-        })()
-    }, [aidProposal.lat, aidProposal.lng])
-
+    const intl = useIntl();
     if (loading) return (
         <div className="d-flex justify-content-center">
             <div className="spinner-border" role="status">
@@ -67,10 +33,9 @@ const EditProposal = ({ action, method, id }) => {
                 <Errors errors={errors.common} />
                 <div className="mb-3">
                     <label htmlFor="full_name" className="form-label required">
-                        Full name / Ваше ім'я
-                        <FormattedMessage
-                            id="devise.mailer.confirmation_instructions.subject"
-                        />
+                        {intl.formatMessage({
+                            id: 'aid_proposals.edit.form.full_name'
+                        })}
                     </label>
                     <input
                         form="editAidProposal"
@@ -83,49 +48,17 @@ const EditProposal = ({ action, method, id }) => {
                     />
                     <Errors errors={errors.full_name} />
                 </div>
-                <div className="mb-3">
-                    <label className="form-label required">
-                        Type city name / Введіть назву міста
-                    </label>
-                    <Map
-                        onZoomEnd={(e) => { setZoom(e.target.getZoom()) }}
-                        center={position}
-                        zoom={zoom}
-                        style={{ width: '100%', height: '300px' }}
-                        zoomControl={false}
-                    >
-                        <ZoomControl position="bottomright" />
-                        
-                        <ReactLeafletSearch
-                            inputPlaceholder="City name / Назву міста"
-                            openSearchOnLoad
-                            position="topleft"
-                            showMarker={false}
-                            showPopup={false}
-                            onChange={({ latLng }) => {
-                                setZoom(11)
-                                setAidProposal({
-                                    ...aidProposal,
-                                    ...latLng,
-                                });
-                            }}
-                        />
-                        <TileLayer
-                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                        />
-                        <Marker
-                            draggable
-                            ondragend={ondragend}
-                            position={position}
-                            icon={markerIcon}
-                        >
-                        </Marker>
-                    </Map>
-                </div>
+                <MapInput
+                    id={id}
+                    aidProposal={aidProposal}
+                    setAidProposal={setAidProposal}
+                    intl={intl}
+                />
                 <div className="mb-3">
                     <label htmlFor="country" className="form-label required">
-                        Country / Країна
+                    {intl.formatMessage({
+                        id: 'aid_proposals.edit.form.country'
+                    })}
                     </label>
                     <input
                         form="editAidProposal"
@@ -140,7 +73,9 @@ const EditProposal = ({ action, method, id }) => {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="city" className="form-label required">
-                        City / Місто
+                    {intl.formatMessage({
+                        id: 'aid_proposals.edit.form.city'
+                    })}
                     </label>
                     <input
                         form="editAidProposal"
@@ -154,28 +89,36 @@ const EditProposal = ({ action, method, id }) => {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="description">
-                        Description of the items needed / Опис необхідних предметів
+                        {intl.formatMessage({
+                            id: 'aid_proposals.edit.form.description'
+                        })}
                     </label>
                     <textarea form="editAidProposal" className="form-control" onChange={onChange} name="aid_proposal[description]" id="description" value={aidProposal.description || ''} />
                     <Errors errors={errors.description} />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="url" className="form-label required">
-                        Additional URL / Додаткове посилання
+                        {intl.formatMessage({
+                            id: 'aid_proposals.edit.form.url'
+                        })}
                     </label>
                     <input form="editAidProposal" className="form-control" onChange={onChange} name="aid_proposal[url]" id="url" type="url" value={aidProposal.url || ''} />
                     <Errors errors={errors.url} />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="date" className="form-label required">
-                        Departure date / Дата від'їзду
+                        {intl.formatMessage({
+                            id: 'aid_proposals.edit.form.date'
+                        })}
                     </label>
                     <input form="editAidProposal" className="form-control" onChange={onChange} name="aid_proposal[date]" id="date" type="date" value={aidProposal.date || ''} />
                     <Errors errors={errors.date} />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="contact" className="form-label required">
-                        Contact information / Контактна інформація
+                        {intl.formatMessage({
+                            id: 'aid_proposals.edit.form.contact'
+                        })}
                     </label>
                     <textarea form="editAidProposal" className="form-control" onChange={onChange} name="aid_proposal[contact]" id="contact" value={aidProposal.contact || ''} />
                     <Errors errors={errors.contact} />
@@ -189,11 +132,19 @@ const EditProposal = ({ action, method, id }) => {
                                     <span className="visually-hidden">Saving...</span>
                                 </>
                             ) : (
-                                id ? "Update / Оновити": "Register / Зареєструвати"
+                                id ? intl.formatMessage({
+                                    id: 'aid_proposals.edit.form.update'
+                                }) : intl.formatMessage({
+                                    id: 'aid_proposals.edit.form.register'
+                                })
                             )
                         }
                     </button>
-                    <a className="btn btn-outline-dark" href="/aid_proposals">Back / Повернутися до списку волнтерів</a>
+                    <a className="btn btn-outline-dark" href="/aid_proposals">
+                        {intl.formatMessage({
+                            id: 'aid_proposals.edit.form.back'
+                        })}
+                    </a>
                 </div>
             </div>
         </>

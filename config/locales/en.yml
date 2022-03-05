@@ -48,6 +48,8 @@ en:
   aid_proposals:
     new:
       become-volonteer: "Register as a volonteer"
+      hello: "Hello!"
+      subtitle: "If you are planning to provide humanitarian aid to Ukraine and would like for other people to help you out, you can fill out the form below and your data will appear on the main page for all the people to see."
     my_proposals:
       title: "My proposals"
     index:
@@ -57,6 +59,20 @@ en:
       search: "Search"
       proposal_details: "View details"
       become_volonteer: "Become a Volonteer"
+    edit:
+      title: 'Editing proposal'
+      form:
+        full_name: "Full name"
+        type_city_name: "Type city name"
+        country: "Country"
+        city: "City"
+        description: "Description of the items needed"
+        url: "Addition URL"
+        date: "Departure date"
+        contact: "Contact information"
+        update: "Update"
+        register: "Register"
+        back: "Back"
   proposal:
     country: "Country"
     city: "City"

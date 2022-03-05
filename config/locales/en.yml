@@ -50,11 +50,12 @@ en:
     my_proposals:
       title: "My proposals"
     index:
+      title: "Help Ukraine help the world"
       subtitle: "Aid proposals"
       description: "This page shows a list of people who are currently collecting resources to be send to Ukraine. If you have the opportunity, please contact people near you and help Ukraine!"
       search: "Search"
       proposal_details: "View details"
-      become_volonteer: "Стати волонтером"
+      become_volonteer: "Become a Volonteer"
   proposal:
     country: "Country"
     city: "City"

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useIntl } from 'react-intl'
 import Errors from './Errors';
 import MapInput from './MapInput';
@@ -7,25 +7,41 @@ import useEditAidProposal from './hooks/useEditAidProposal';
 
 const DateSelector = ({date, error, onChangeOuter}) => {
     const intl = useIntl();
+    const [ regularityState, setRegularityState] = useState( date ? "specific" : "regular"); 
 
-    const onChange = (e) => {
-        // do something.
-        onChangeOuter(e);
+    const onChangeRegularity = (e) => {
+        setRegularityState(e.target.value);
+        // Somehow reset the date element.
     }
+    const onChange = (e) => onChangeOuter(e);
+  
     return (
         <>
         <div className="mb-3">
-                    <label htmlFor="date" className="form-label required">
-                        {intl.formatMessage({
-                            id: 'aid_proposals.edit.form.date'
-                        })}
-                    </label>
-                    
-                    <input form="editAidProposal" className="form-control" onChange={onChange} name="aid_proposal[date]" id="date" type="date" value={date || ''} />
-                    <input form="editAidProposal" className="form-control" onChange={onChange} name="aid_proposal[_date-unset]" id="date-unset" type="checkbox" value={date === null} />
-            
-                    <Errors errors={error} />
-                </div>       
+            <div onChange={onChangeRegularity} className="row">
+                <div className="col-md-6">
+                <input type="radio" value="specific" name="date-set" defaultChecked={regularityState == "specific"} />
+                Departing at specific time
+                </div>
+                <div className="col-md-6">
+                <input type="radio" value="regular" name="date-set" defaultChecked={regularityState == "regular"} /> 
+                    Departing regularly
+                </div>
+            </div>
+        </div>
+
+        {regularityState == 'specific' && 
+            <div className="mb-3">
+                <label htmlFor="date" className="form-label required">
+                    {intl.formatMessage({
+                        id: 'aid_proposals.edit.form.date'
+                    })}
+                </label>
+                
+                <input form="editAidProposal" className="form-control" onChange={onChange} name="aid_proposal[date]" id="date" type="date" value={date || ''} />
+                <Errors errors={error} />
+            </div>  
+        } 
         </>
     )
 };

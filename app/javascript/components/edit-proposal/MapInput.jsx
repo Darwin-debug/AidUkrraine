@@ -1,41 +1,56 @@
-import React, { useState, useEffect } from 'react';
-import { Map, Marker, TileLayer, ZoomControl } from 'react-leaflet';
-import ReactLeafletSearch from "react-leaflet-search";
+import React, { useEffect, useRef, useMemo } from 'react';
+import { MapContainer, Marker, TileLayer, ZoomControl, useMap } from 'react-leaflet';
+import CityAutocomplete from './CityAutocomplete'
 
 import markerIcon from '../../markerIcon';
 
-import { getCity } from '../../api';
+import { getCityByCoordinates } from '../../api';
 
-import 'leaflet/dist/leaflet.css'
-import 'react-leaflet-search/css'
+import 'leaflet/dist/leaflet.css';
 
 const defaultLng = 18.821976536948544;
 const defaultLat = 51.42169068153824;
 
+const Map = ({ position }) => {
+    const map = useMap()
+    useEffect(() => {
+        map.flyTo(position);
+    })
+    return null
+}
+
 const MapInput = ({ aidProposal, setAidProposal, id, intl }) => {
-    const [zoom, setZoom] = useState(id ? 11 : 4);
     
     const position = {
         lat: aidProposal.lat || defaultLat,
         lng: aidProposal.lng || defaultLng,
     };
-    const ondragend = (e) => {
+
+    const markerRef = useRef(null)
+    const eventHandlers = useMemo(
+        () => ({
+            async dragend() {
+                const marker = markerRef.current
+                if (marker != null) {
+                    const latLng = marker.getLatLng();
+                    const address = await getCityByCoordinates(latLng);
+                    setAidProposal({
+                        ...aidProposal,
+                        ...address,
+                        ...latLng,
+                    });
+                }
+            },
+        }),
+        [],
+    )
+
+    const setCityData = (cityData) => {
         setAidProposal({
             ...aidProposal,
-            ...(e.target.getLatLng()),
+            ...cityData,
         });
-    };
-
-    useEffect(() => {
-        if (!aidProposal.lat) return
-        (async () => {
-            const address = await getCity(aidProposal);
-            setAidProposal({
-                ...aidProposal,
-                ...address,
-            });
-        })()
-    }, [aidProposal.lat, aidProposal.lng])
+    }
     return (
         <div className="mb-3">
             <label className="form-label required">
@@ -43,43 +58,28 @@ const MapInput = ({ aidProposal, setAidProposal, id, intl }) => {
                     id: 'aid_proposals.edit.form.type_city_name'
                 })}
             </label>
-            <Map
-                onZoomEnd={(e) => { setZoom(e.target.getZoom()) }}
+            <CityAutocomplete setCityData={setCityData} />
+            <MapContainer
                 center={position}
-                zoom={zoom}
+                zoom={id ? 11 : 4}
                 style={{ width: '100%', height: '300px' }}
                 zoomControl={false}
             >
+                <Map position={position} />
                 <ZoomControl position="bottomright" />
-                
-                <ReactLeafletSearch
-                    inputPlaceholder={intl.formatMessage({
-                        id: 'aid_proposals.edit.form.type_city_name'
-                    })}
-                    openSearchOnLoad
-                    position="topleft"
-                    showMarker={false}
-                    showPopup={false}
-                    onChange={({ latLng }) => {
-                        setZoom(11)
-                        setAidProposal({
-                            ...aidProposal,
-                            ...latLng,
-                        });
-                    }}
-                />
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
                 <Marker
+                    ref={markerRef}
                     draggable
-                    ondragend={ondragend}
+                    eventHandlers={eventHandlers}
                     position={position}
                     icon={markerIcon}
                 >
                 </Marker>
-            </Map>
+            </MapContainer>
         </div>
     )
 };

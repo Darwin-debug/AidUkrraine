@@ -1,20 +1,22 @@
 import React, { useEffect } from 'react';
 import { useIntl } from 'react-intl';
-import { Map, Marker, TileLayer, ZoomControl, Popup } from 'react-leaflet';
+import { MapContainer, Marker, TileLayer, ZoomControl, Popup } from 'react-leaflet';
+import MarkerClusterGroup from 'react-leaflet-markercluster';
 
 import Proposal from './Proposal';
 
 import markerIcon from '../../markerIcon';
 
-import 'leaflet/dist/leaflet.css'
-import './search.css'
+import 'leaflet/dist/leaflet.css';
+import 'react-leaflet-markercluster/dist/styles.min.css';
+import './search.css';
 
 const ProposalsList = ({ proposals, loading }) => {
     const intl = useIntl();
     return (
         <div>
             <div className="card mb-3">
-                <Map
+                <MapContainer
                     center={[51.42169068153824, 18.821976536948544]}
                     zoom={4}
                     scrollWheelZoom={false}
@@ -25,6 +27,7 @@ const ProposalsList = ({ proposals, loading }) => {
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
+                    <MarkerClusterGroup>
                     {
                         proposals
                             .filter(proposal => proposal.lat)
@@ -52,8 +55,10 @@ const ProposalsList = ({ proposals, loading }) => {
                                 </Marker>
                             ))
                     }
+                    </MarkerClusterGroup>
                     
-                </Map>
+                    
+                </MapContainer>
             </div>
             {
                 loading ? (

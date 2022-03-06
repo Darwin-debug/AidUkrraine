@@ -25,7 +25,7 @@ const CityAutocomplete = ({ setCityData }) => {
             menuStyle={{ zIndex: '1000', position: 'absolute', top: '40px', left: 0}}
             items={items}
             renderItem={(item, isHighlighted) => (
-                <div style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
+                <div key={item.display_name} style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
                     {item.display_name}
                 </div>
             )}

@@ -56,8 +56,6 @@ const ProposalsList = ({ proposals, loading }) => {
                             ))
                     }
                     </MarkerClusterGroup>
-                    
-                    
                 </MapContainer>
             </div>
             {

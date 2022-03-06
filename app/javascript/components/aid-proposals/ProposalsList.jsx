@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react';
 import { useIntl } from 'react-intl';
 import { MapContainer, Marker, TileLayer, ZoomControl, Popup } from 'react-leaflet';
-import MarkerClusterGroup from 'react-leaflet-markercluster';
-
+import MarkerClusterGroup from 'react-leaflet-cluster';
 import Proposal from './Proposal';
 
 import markerIcon from '../../markerIcon';
 
 import 'leaflet/dist/leaflet.css';
-import 'react-leaflet-markercluster/dist/styles.min.css';
 import './search.css';
 
 const ProposalsList = ({ proposals, loading }) => {
@@ -72,6 +70,7 @@ const ProposalsList = ({ proposals, loading }) => {
                     />
                 ))
             }
+            dsfdsfsfdffsds
         </div>
     );
 }

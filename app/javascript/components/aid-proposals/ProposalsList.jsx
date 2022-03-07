@@ -70,7 +70,6 @@ const ProposalsList = ({ proposals, loading }) => {
                     />
                 ))
             }
-            dsfdsfsfdffsds
         </div>
     );
 }

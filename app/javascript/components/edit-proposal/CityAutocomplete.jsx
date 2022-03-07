@@ -9,7 +9,7 @@ const CityAutocomplete = ({ setCityData }) => {
 
     return (
         <Autocomplete
-            getItemValue={val => val.display_name}
+            getItemValue={val => `${val.place_id}`}
             wrapperProps={{
                 className: 'mb-3',
                 style: { display: 'block', position: 'relative' }
@@ -25,7 +25,7 @@ const CityAutocomplete = ({ setCityData }) => {
             menuStyle={{ zIndex: '1000', position: 'absolute', top: '40px', left: 0}}
             items={items}
             renderItem={(item, isHighlighted) => (
-                <div key={item.display_name} style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
+                <div key={item.place_id} style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
                     {item.display_name}
                 </div>
             )}
@@ -40,7 +40,7 @@ const CityAutocomplete = ({ setCityData }) => {
                     setItems(items);
                 });
             }}
-            onSelect={(_, {display_name, ...item}) => {
+            onSelect={(_, { display_name, place_id, ...item }) => {
                 setCityData(item)
             }}
         />

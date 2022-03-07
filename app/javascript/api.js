@@ -9,7 +9,7 @@ export const getCitiesByName = async (cityName) => {
     const res = await fetch(
         `https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&q=${cityName}&zoom=12`
     ).then(res => res.json());
-    return (res || []).map(({ address: { town, city, country, state }, lat, lon: lng, display_name }) => {
-        return { city: town || city || state || '', country: country || '', lat, lng, display_name }
+    return (res || []).map(({ place_id, address: { town, city, country, state }, lat, lon: lng, display_name }) => {
+        return { place_id, city: town || city || state || '', country: country || '', lat, lng, display_name }
     });
 };

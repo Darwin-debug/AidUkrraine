@@ -25,34 +25,34 @@ const ProposalsList = ({ proposals, loading }) => {
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    <MarkerClusterGroup>
-                    {
-                        proposals
-                            .filter(proposal => proposal.lat)
-                            .map(proposal => (
-                                <Marker
-                                    key={proposal.id}
-                                    position={proposal}
-                                    icon={markerIcon}
-                                >
-                                    <Popup>
-                                        <div className="card">
-                                            <div className="card-body">
-                                                <h5 className="card-title"> {proposal.country}, {proposal.city} </h5>
-                                                <h6 className="card-subtitle mb-2 text-muted"> {proposal.date} - <b> {proposal.full_name}</b></h6>
-                                                <div>
-                                                    <a className="text-dark" href={`aid_proposals/${proposal.id}`} >
-                                                        {intl.formatMessage({
-                                                            id: 'aid_proposals.index.proposal_details'
-                                                        })}
-                                                    </a>
+                    <MarkerClusterGroup maxClusterRadius={30} >
+                        {
+                            proposals
+                                .filter(proposal => proposal.lat)
+                                .map(proposal => (
+                                    <Marker
+                                        key={proposal.id}
+                                        position={proposal}
+                                        icon={markerIcon}
+                                    >
+                                        <Popup>
+                                            <div className="card">
+                                                <div className="card-body">
+                                                    <h5 className="card-title"> {proposal.country}, {proposal.city} </h5>
+                                                    <h6 className="card-subtitle mb-2 text-muted"> {proposal.date} - <b> {proposal.full_name}</b></h6>
+                                                    <div>
+                                                        <a className="text-dark" href={`aid_proposals/${proposal.id}`} >
+                                                            {intl.formatMessage({
+                                                                id: 'aid_proposals.index.proposal_details'
+                                                            })}
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </Popup>
-                                </Marker>
-                            ))
-                    }
+                                        </Popup>
+                                    </Marker>
+                                ))
+                        }
                     </MarkerClusterGroup>
                 </MapContainer>
             </div>
@@ -70,7 +70,7 @@ const ProposalsList = ({ proposals, loading }) => {
                     />
                 ))
             }
-        </div>
+        </div >
     );
 }
 

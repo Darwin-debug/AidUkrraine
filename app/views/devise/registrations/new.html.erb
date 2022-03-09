@@ -18,7 +18,7 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <%= recaptcha_tags %>
+  <%= recaptcha_tags :noscript => false%>
 
   <div class="actions">
     <%= f.submit "Sign up" %>

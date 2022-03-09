@@ -8,7 +8,6 @@
 <p><%= t('.description') %></p>
 </div>
 <br>
-
 <h2><%= t('.subtitle') %></h2>
 <%# Rendered in react at aid_proposal.jsx. %>
 <div id="proposals_container" 
@@ -16,6 +15,10 @@
   data-field="search_query"
   data-action="aid_proposals.json"
 ></div>
+
+<div class="alert alert-info">
+ <%= t('.responsibility-notice') %>
+</div>
 
 <%= link_to t('shared.header.become-a-volonteer'), new_aid_proposal_path, class: "btn btn-dark" %>
 <br>

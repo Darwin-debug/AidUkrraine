@@ -66,6 +66,7 @@ en:
       description: "This page shows a list of people who are currently collecting resources to be send to Ukraine. If you have the opportunity, please contact people near you and help Ukraine!"
       search: "Search"
       proposal_details: "View details"
+      responsibility-notice: "Warning! The platform functions as an emergency aggregator and does not ensure the validity of all the date and the credibility of individual volonteers."
     edit:
       title: 'Editing proposal'
       form:

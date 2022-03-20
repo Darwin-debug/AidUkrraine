@@ -18,14 +18,14 @@ const ProposalsList = ({ proposals, loading }) => {
                     center={[51.42169068153824, 18.821976536948544]}
                     zoom={4}
                     scrollWheelZoom={false}
-                    style={{ width: '100%', height: '300px' }}
+                    style={{ width: '100%', height: '500px' }}
                     zoomControl={false}>
                     <ZoomControl position="bottomright" />
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    <MarkerClusterGroup maxClusterRadius={30} >
+                    <MarkerClusterGroup maxClusterRadius={10} >
                         {
                             proposals
                                 .filter(proposal => proposal.lat)

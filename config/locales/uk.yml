@@ -43,7 +43,7 @@ uk:
         type_city_name: "Введіть назву міста"
         country: "Країна"
         city: "Місто"
-        description: "Опис необхідних предметів"
+        description: "Опис вашого збору"
         url: "Додаткове посилання"
         date-regular: "Їжджу регулярно"
         date-specific: "Їду в конкретний день"

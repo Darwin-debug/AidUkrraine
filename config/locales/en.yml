@@ -74,7 +74,7 @@ en:
         type_city_name: "Type city name"
         country: "Country"
         city: "City"
-        description: "Description of the items needed"
+        description: "Description about your cause"
         url: "Additional URL"
         date-regular: "Sending items regularly"
         date-specific: "Departure on a specific day"

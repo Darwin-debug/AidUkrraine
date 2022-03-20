@@ -96,7 +96,7 @@ class AidProposalsController < ApplicationController
 
   private
     def aid_proposals
-      AidProposal.search params[:search_query]
+      (AidProposal.search params[:search_query]).order(id: :desc)
     end
 
     # Use callbacks to share common setup or constraints between actions.

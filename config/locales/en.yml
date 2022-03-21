@@ -33,7 +33,7 @@ en:
   shared:
     header:
       provide-aid: "Provide aid"
-      become-a-volnteer: "Become a volonteer"
+      become-a-volonteer: "Add collection point"
       switch-language-icon: "UA"
       switch-language-alt: "Switch Language to Ukrainian"
       my-proposals: "My proposals"
@@ -43,7 +43,7 @@ en:
   static_pages:
     home:
       provide-aid: "Provide aid"
-      become-a-volnteer: "Become a volonteer"
+      become-a-volonteer: "Add collection point"
       heading: Let's provide humanitarian aid to Ukraine!
   aid_proposals:
     create:
@@ -55,7 +55,7 @@ en:
       approve: "Approve"
       deny: "Deny"
     new:
-      become-volonteer: "Register as a volonteer"
+      become-volonteer: "Register aid collection point"
       hello: "Hello!"
       subtitle: "If you are planning to provide humanitarian aid to Ukraine and would like for other people to help you out, you can fill out the form below and your data will appear on the main page for all the people to see."
     my_proposals:

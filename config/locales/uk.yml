@@ -2,7 +2,7 @@ uk:
   shared:
     header:
       provide-aid: "Надати допомогу"
-      become-a-volonteer: "Стати волонтером"
+      become-a-volonteer: "Додати точку збору"
       switch-language-icon: "EN"
       switch-language-alt: "Змінити мову на англійську"
       my-proposals: Мої заявки
@@ -12,7 +12,7 @@ uk:
   static_pages:
     home:
       provide-aid: "Надати допомогу"
-      become-a-volonteer: "Стати волонтером"
+      become-a-volonteer: "Додати точку збору"
       heading:  Надаймо гуманітарну допомогу Україні!
   aid_proposals:
     update:
@@ -22,7 +22,7 @@ uk:
       approve: "Затвердити"
       deny: "Відмінити"
     new:
-      become-volonteer: "Стати волонтером"
+      become-volonteer: "Додати точку збору"
       hello: "Привіт!"
       subtitle: "Якщо ти плануєш надати гуманітарну допомогу Україні і хотів би, щоб інші люди тобі допомогли, ти можеш заповнити форму нижче і твої дані з'являться на головній сторінці в загальному доступі."
     create:
